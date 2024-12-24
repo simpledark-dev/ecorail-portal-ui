@@ -204,7 +204,7 @@ const LocoInfoTooltip = (props: LocoInfoTooltipProps) => {
           {infos.map((group, index) => (
             <div key={index} className="p-3">
               {group.map((info, idx) => (
-                <p key={idx} className="mb-1">
+                <p key={idx} className="mb-2">
                   {info.label}: <strong className="text-neutral-500">{info.value}</strong>
                 </p>
               ))}

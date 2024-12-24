@@ -1,5 +1,5 @@
 import { StoryFn } from "@storybook/react";
-import { DialogProvider, useDialog } from "../";
+import { DialogProvider, useDialog } from "..";
 import { Icons } from "@/components/icons";
 
 export default {
@@ -55,7 +55,7 @@ export const NoChangesDetected: StoryFn = () => {
             dialog.remove(instance.id);
           }}
         >
-          <span className="text-base font-medium text-white">OK</span>
+          <span className="text-sm font-medium text-white">OK</span>
         </button>
       ),
     });
@@ -97,7 +97,7 @@ export const NoTSOInfoFound: StoryFn = () => {
             dialog.remove(instance.id);
           }}
         >
-          <span className="text-base font-medium text-white">Close</span>
+          <span className="text-sm font-medium text-white">Close</span>
         </button>
       ),
     });

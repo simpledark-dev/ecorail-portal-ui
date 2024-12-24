@@ -26,7 +26,7 @@ export const DialogInstance = (props: DialogInstanceProps) => {
           {instance.icon && instance.icon}
           <h3
             id={`dialog-title-${instance.id}`}
-            className="m-0 p-0 text-lg font-semibold text-[#3C4B65]"
+            className="m-0 p-0 text-base font-semibold text-[#3C4B65]"
           >
             {instance.title}
           </h3>

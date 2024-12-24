@@ -4,11 +4,13 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev:storybook": "storybook dev -p 9999 --no-open"
+    "storybook": "storybook dev -p 9999 --no-open",
+    "build-storybook": "sb build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@floating-ui/react": "^0.27.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "eventemitter3": "^5.0.1",
     "framer-motion": "^11.15.0",
@@ -19,7 +21,7 @@
     "nanoid": "^5.0.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-leaflet": "^5.0.0",
+    "react-leaflet": "4.2.1",
     "tailwindcss": "^3.4.17",
     "uuid": "^11.0.3",
     "zustand": "^5.0.2"

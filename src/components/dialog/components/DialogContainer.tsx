@@ -4,7 +4,7 @@ import { useScopeContext } from "../contexts/scope.context";
 import { css } from "@emotion/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePreventScroll } from "@/hooks/usePreventScroll";
-import { cn } from "@/utils/common";
+import { cn } from "@/utils/common.util";
 import { DialogInstance } from "./DialogInstance";
 
 export const DialogContainer = () => {

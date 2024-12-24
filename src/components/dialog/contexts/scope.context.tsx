@@ -1,8 +1,8 @@
 import React from "react";
 import { StoreApi } from "zustand";
-import { TScopeStore } from "../types";
 import { createScopeStore } from "../stores/scope.store";
-import { createSelectors } from "@/utils/common";
+import { createSelectors } from "@/utils/common.util";
+import { TScopeStore } from "../types";
 
 const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore> } | undefined>(undefined);
 

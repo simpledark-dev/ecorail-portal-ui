@@ -1,6 +1,6 @@
 import { createStore } from "zustand";
 import { TScopeStore } from "../types";
-import { nanoid } from "@/utils/common";
+import { nanoid } from "@/utils/common.util";
 
 export const createScopeStore = () => {
   return createStore<TScopeStore>((set, _) => ({

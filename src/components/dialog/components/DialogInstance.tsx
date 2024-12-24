@@ -20,7 +20,7 @@ export const DialogInstance = (props: DialogInstanceProps) => {
         transform: translateX(-50%) translateY(-50%);
       `}
     >
-      <div className="min-w-[350px] max-w-[500px] overflow-hidden rounded-[8px] border border-[#D5D8DE] bg-white drop-shadow-[0_4px_8px_#E5E5E526]">
+      <div className="min-w-[350px] max-w-[550px] overflow-hidden rounded-[8px] border border-[#D5D8DE] bg-white drop-shadow-[0_4px_8px_#E5E5E526]">
         {/* Dialog Heading */}
         <div className="flex items-center justify-start gap-3 border-b border-[#D5D8DE] bg-white p-[20px]">
           {instance.icon && instance.icon}

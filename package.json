@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 9999 --no-open",
-    "build-storybook": "sb build"
+    "build": "storybook build public"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

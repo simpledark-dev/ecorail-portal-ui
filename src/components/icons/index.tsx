@@ -38,4 +38,14 @@ export const Icons = {
       />
     </svg>
   ),
+  Layers: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M480-118 120-398l66-50 294 228 294-228 66 50-360 280Zm0-202L120-600l360-280 360 280-360 280Zm0-280Zm0 178 230-178-230-178-230 178 230 178Z" />
+    </svg>
+  ),
+  LayersClear: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="m644-448-56-58 122-94-230-178-94 72-56-58 150-116 360 280-196 152Zm115 114-58-58 73-56 66 50-81 64Zm33 258L632-236 480-118 120-398l66-50 294 228 94-73-57-56-37 29-360-280 83-65L55-811l57-57 736 736-56 56ZM487-606Z" />
+    </svg>
+  ),
 };

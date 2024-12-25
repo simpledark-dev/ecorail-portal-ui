@@ -5,6 +5,7 @@ export const createScopeStore = (init: Pick<TScopeStore, "locos">) => {
   return createStore<TScopeStore>(() => ({
     ...init,
     displayLocos: init.locos,
+    showRailwayLayer: false,
     showInfoTooltipLocoMarkerInstanceId: null,
     showChildrenTooltipLocoClusterInstanceId: null,
     showLiveSignal: true,

@@ -70,7 +70,7 @@ export const SignalsFilter = React.memo(() => {
             <div className="flex items-center justify-start gap-2">
               <div
                 className={cn(
-                  "h-6 w-6 rounded-full border-[3px] border-white bg-gradient-to-b",
+                  "h-6 w-6 rounded-full border-[3px] border-white bg-gradient-to-b drop-shadow-sm",
                   locoSignalStatusMapping[signal.key].themeClass,
                 )}
               />
@@ -83,7 +83,12 @@ export const SignalsFilter = React.memo(() => {
                 </p>
               </div>
             </div>
-            <ToggleButton size={"sm"} checked={signal.checked} onChange={signal.toggle} />
+            <ToggleButton
+              size={"sm"}
+              checked={signal.checked}
+              onChange={signal.toggle}
+              aria-label={`Toggle ${locoSignalStatusMapping[signal.key].label}`}
+            />
           </div>
         ))}
       </div>

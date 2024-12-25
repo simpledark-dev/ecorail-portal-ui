@@ -3,6 +3,7 @@ import { LocoSignalStatus } from "../enums";
 export type TScopeStore = {
   locos: TLocoData[];
   displayLocos: TLocoData[];
+  showRailwayLayer: boolean;
   showInfoTooltipLocoMarkerInstanceId: string | null;
   showChildrenTooltipLocoClusterInstanceId: string | null;
   showLiveSignal: boolean;

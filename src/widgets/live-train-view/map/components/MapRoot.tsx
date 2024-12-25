@@ -13,6 +13,8 @@ import { ScopeEventName } from "../enums";
 export const MapRoot = () => {
   const scopeContext = useScopeContext();
   const scopeEventBus = scopeContext.eventBus;
+  const scopeStore = scopeContext.store;
+  const showRailwayLayer = scopeStore.use.showRailwayLayer();
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -41,6 +43,10 @@ export const MapRoot = () => {
       zoomControl={false}
     >
       <TileLayer attribution={MapConfig.ATTRIBUTION} url={MapConfig.TILE_URL} />
+
+      {showRailwayLayer && (
+        <TileLayer attribution={MapConfig.ATTRIBUTION} url={MapConfig.TILE_RAILWAY_URL} />
+      )}
       <MapResizer />
       <LocosLayer />
       <MapEvents />

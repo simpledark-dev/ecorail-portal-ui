@@ -1,5 +1,6 @@
 export const MapConfig = {
   TILE_URL: `https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/256/{z}/{x}/{y}@2x?lang=en&access_token=pk.eyJ1IjoiZ2FlbGR1b25nIiwiYSI6ImNrb2I1eDZ5NzIyMmEyb3MyZDlqeGRnZTAifQ.p_IcJvFNMnFDoym2YaxlGA`,
+  TILE_RAILWAY_URL: "https://tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",
   ATTRIBUTION:
     'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   DEFAULT_CENTER: { lat: 43.64606677, lng: -79.37180328 },

@@ -21,6 +21,13 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
   const storeRef = React.useRef<StoreApi<TScopeStore>>(createScopeStore(init));
   const eventBusRef = React.useRef(new EventEmitter<ScopeEventName>());
   const storeSelectors = createSelectors(storeRef.current);
+  const displayLocos = storeSelectors.use.displayLocos();
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      eventBusRef.current.emit(ScopeEventName.MAP_RECENTER);
+    }, 200);
+  }, [displayLocos]);
 
   React.useEffect(() => {
     storeSelectors.setState({

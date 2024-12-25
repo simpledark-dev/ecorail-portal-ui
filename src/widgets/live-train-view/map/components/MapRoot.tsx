@@ -7,20 +7,11 @@ import { MapResizer } from "./MapResizer";
 import { LocosLayer } from "./LocosLayer";
 import { MapEvents } from "./MapEvents";
 import { useScopeContext } from "../contexts/scope.context";
-import React from "react";
-import { ScopeEventName } from "../enums";
 
 export const MapRoot = () => {
   const scopeContext = useScopeContext();
-  const scopeEventBus = scopeContext.eventBus;
   const scopeStore = scopeContext.store;
   const showRailwayLayer = scopeStore.use.showRailwayLayer();
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      scopeEventBus.emit(ScopeEventName.MAP_RECENTER);
-    }, 200);
-  }, []);
 
   return (
     <MapContainer

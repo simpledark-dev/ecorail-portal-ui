@@ -1,6 +1,6 @@
 import { ToggleButton } from "@/components/toggle-button";
 import React from "react";
-import { LocoSignalStatus } from "../enums";
+import { LocoSignalStatus, ScopeEventName } from "../enums";
 import { locoSignalStatusMapping } from "../mappings";
 import { cn } from "@/utils/common.util";
 import { useScopeContext } from "../contexts/scope.context";
@@ -8,6 +8,7 @@ import { classifyLocoSignalStatus } from "../utils";
 
 export const SignalsFilter = React.memo(() => {
   const scopeContext = useScopeContext();
+  const scopeEventBus = scopeContext.eventBus;
   const scopeStore = scopeContext.store;
   const locos = scopeStore.use.locos();
   const showLiveSignal = scopeStore.use.showLiveSignal();

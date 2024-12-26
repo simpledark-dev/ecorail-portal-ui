@@ -1,2 +1,2 @@
-export { Widget as MapWidget } from "./components/Widget";
-export type { WidgetProps as MapWidgetProps } from "./components/Widget";
+export { Root as MapWidget } from "./components/Root";
+export type { RootProps as MapWidgetProps } from "./components/Root";

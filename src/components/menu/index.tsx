@@ -1,5 +1,5 @@
 type TMenuItem = {
-  icon: JSX.Element;
+  icon: React.ReactElement;
   label: string;
   action: () => void;
 };
@@ -38,7 +38,7 @@ const MenuItem = (props: MenuItemProps) => {
 
   return (
     <button
-      className="flex w-full items-center gap-3 px-4 py-2 text-sm text-neutral-500 hover:bg-blue-100 active:bg-blue-200"
+      className="flex w-full items-center gap-3 px-4 py-2 text-sm text-neutral-500 transition-colors duration-150 hover:bg-blue-100 active:bg-blue-200"
       aria-label={item.label}
       onClick={item.action}
     >

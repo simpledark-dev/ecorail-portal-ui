@@ -7,7 +7,7 @@ export type TScopeStore = {
 export type TDialogInstance = {
   id: string;
   title: string;
-  icon?: JSX.Element;
-  body?: JSX.Element;
-  actions?: (instance: TDialogInstance) => JSX.Element;
+  icon?: React.ReactElement;
+  body?: React.ReactElement;
+  actions?: (instance: TDialogInstance) => React.ReactElement;
 };

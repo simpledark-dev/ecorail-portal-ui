@@ -1,5 +1,5 @@
 import React from "react";
-import { TLocoData } from "../types";
+import { TScopeLocoData } from "../types";
 import { classifyLocoSignalStatus } from "../utils";
 import { LocoSignalStatus } from "../enums";
 import { JSXMarker } from "@/core/jsx-marker";
@@ -14,7 +14,7 @@ import { useMarkerZIndex } from "@/hooks/useMarkerZIndex";
 import { useScopeContext } from "../contexts/scope.context";
 
 interface LocosClusterProps {
-  locos: TLocoData[];
+  locos: TScopeLocoData[];
   gps: { lat: number; lng: number };
 }
 
@@ -155,7 +155,7 @@ export const LocosCluster = (props: LocosClusterProps) => {
 
           {/* Tooltip */}
           <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-[100%]">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence>
               {isShowChildrenTooltip && <LocosChildrenToolTip locos={locos} />}
             </AnimatePresence>
           </div>
@@ -166,7 +166,7 @@ export const LocosCluster = (props: LocosClusterProps) => {
 };
 
 interface LocosChildrenToolTipProps {
-  locos: TLocoData[];
+  locos: TScopeLocoData[];
 }
 
 const LocosChildrenToolTip = (props: LocosChildrenToolTipProps) => {

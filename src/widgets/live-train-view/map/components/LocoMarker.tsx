@@ -1,6 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
-import { TLocoData } from "../types";
+import { TScopeLocoData } from "../types";
 import { JSXMarker } from "@/core/jsx-marker";
 import { AnimatePresence, motion } from "framer-motion";
 import moment from "moment";
@@ -14,7 +13,7 @@ import { LocoMarkerConfig } from "../configs/index";
 import { LocoSignalStatus } from "../enums";
 
 interface LocoMarkerProps {
-  loco: TLocoData;
+  loco: TScopeLocoData;
   onMap?: boolean;
 }
 
@@ -46,7 +45,7 @@ export const LocoMarker = React.memo((props: LocoMarkerProps) => {
         ? LocoMarkerConfig.MARKER_ZINDEX_ON_SHOW_INFO_TOOLTIP
         : locoSignalStatusMapping[locoSignalStatus].markerZindexBase,
     },
-    [isShowInfoTooltip],
+    [],
   );
 
   const handleToggleTooltip = React.useCallback(() => {
@@ -94,7 +93,7 @@ export const LocoMarker = React.memo((props: LocoMarkerProps) => {
 
       {/* Tooltip */}
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 translate-y-[100%]">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           {isShowInfoTooltip && <LocoInfoTooltip loco={loco} signalStatus={locoSignalStatus} />}
         </AnimatePresence>
       </div>
@@ -120,7 +119,7 @@ export const LocoMarker = React.memo((props: LocoMarkerProps) => {
 LocoMarker.displayName = "UI.LocoMarker";
 
 interface LocoIdTooltipProps {
-  loco: TLocoData;
+  loco: TScopeLocoData;
 }
 
 const LocoIdTooltip = (props: LocoIdTooltipProps) => {
@@ -134,7 +133,7 @@ const LocoIdTooltip = (props: LocoIdTooltipProps) => {
       exit={{ opacity: 0, y: 12 }}
       transition={{ type: "spring" }}
     >
-      <p className="text-navy-600 relative z-[2] whitespace-nowrap text-xs font-semibold">
+      <p className="relative z-[2] whitespace-nowrap text-xs font-semibold text-navy-600">
         {loco.locoId}
       </p>
       <span className="absolute bottom-0 left-[50%] z-[1] h-2 w-2 translate-x-[-50%] translate-y-[55%] rotate-45 rounded-br-[2px] border-b border-r border-neutral-200 bg-white" />
@@ -143,7 +142,7 @@ const LocoIdTooltip = (props: LocoIdTooltipProps) => {
 };
 
 interface LocoInfoTooltipProps {
-  loco: TLocoData;
+  loco: TScopeLocoData;
   signalStatus: LocoSignalStatus;
 }
 
@@ -170,7 +169,7 @@ const LocoInfoTooltip = (props: LocoInfoTooltipProps) => {
         animate={{ height: 48 }}
         exit={{ height: 0 }}
         transition={{ duration: 0.2 }}
-        className="absolute left-1/2 top-0 w-[3px] -translate-x-1/2 -translate-y-[90%] rounded-full bg-gradient-to-b from-transparent to-gray-400"
+        className="pointer-events-none absolute left-1/2 top-0 w-[3px] -translate-x-1/2 -translate-y-[90%] select-none rounded-full bg-gradient-to-b from-transparent to-gray-400"
       />
 
       <motion.div
@@ -178,7 +177,7 @@ const LocoInfoTooltip = (props: LocoInfoTooltipProps) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="relative z-[2] overflow-hidden rounded-[8px] border border-gray-400 bg-white"
+        className="relative z-[2] overflow-hidden rounded-[8px] border border-gray-500 bg-white"
       >
         {/* Header */}
         <div className="flex items-stretch justify-start gap-3 whitespace-nowrap p-3">
@@ -189,7 +188,7 @@ const LocoInfoTooltip = (props: LocoInfoTooltipProps) => {
             )}
           />
           <div>
-            <p className="text-navy-600 mb-1 text-sm font-semibold">{loco.locoId}</p>
+            <p className="mb-1 text-sm font-semibold text-navy-600">{loco.locoId}</p>
             <p className="text-xs text-neutral-400">
               Last Seen: {moment(loco.lastSeenUtc).startOf("minutes").fromNow()}
             </p>

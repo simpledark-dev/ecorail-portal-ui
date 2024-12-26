@@ -6,10 +6,11 @@ export const useMarkerZIndex = (
     map: L.Map;
     markerRef: React.RefObject<any>;
     zIndex: number;
+    force?: boolean;
   },
-  deps: any[],
+  deps: React.DependencyList,
 ) => {
-  const { map, markerRef, zIndex } = props;
+  const { map, markerRef, zIndex, force = true } = props;
 
   const handleSetMarkerZIndex = () => {
     if (markerRef.current) {
@@ -25,15 +26,17 @@ export const useMarkerZIndex = (
 
     handleSetMarkerZIndex();
 
-    // Force
-    setTimeout(() => {
-      handleSetMarkerZIndex();
-    }, 200);
+    if (force) {
+      // Force
+      setTimeout(() => {
+        handleSetMarkerZIndex();
+      }, 200);
 
-    // Force
-    setTimeout(() => {
-      handleSetMarkerZIndex();
-    }, 400);
+      // Force
+      setTimeout(() => {
+        handleSetMarkerZIndex();
+      }, 400);
+    }
 
     map.on("zoomanim", handleSetMarkerZIndex);
     map.on("zoomstart", handleSetMarkerZIndex);

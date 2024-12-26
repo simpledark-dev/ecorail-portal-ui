@@ -1,7 +1,7 @@
 import React from "react";
 import { useScopeContext } from "../contexts/scope.context";
 import { LocoMarker } from "./LocoMarker";
-import { TLocoData } from "../types";
+import { TScopeLocoData } from "../types";
 import { useMap } from "react-leaflet";
 import { calculateCenter, createClusters } from "@/utils/map.util";
 import { ClusterConfig } from "../configs";
@@ -12,17 +12,17 @@ export const LocosLayer = React.memo(() => {
   const scopeStore = scopeContext.store;
   const displayLocos = scopeStore.use.displayLocos();
 
-  const [clusters, setClusters] = React.useState<TLocoData[][]>([]);
+  const [clusters, setClusters] = React.useState<TScopeLocoData[][]>([]);
 
   const map = useMap();
 
+  const handleMapChange = React.useCallback(() => {
+    const newClusters = createClusters(displayLocos, map, ClusterConfig.LOCO_DISTANCE_THRESHOLD);
+    setClusters(newClusters);
+  }, [displayLocos, map]);
+
   React.useEffect(() => {
     if (!map) return;
-
-    const handleMapChange = () => {
-      const newClusters = createClusters(displayLocos, map, ClusterConfig.LOCO_DISTANCE_THRESHOLD);
-      setClusters(newClusters);
-    };
 
     handleMapChange();
 
@@ -33,7 +33,7 @@ export const LocosLayer = React.memo(() => {
       map.off("zoomend", handleMapChange);
       map.off("moveend", handleMapChange);
     };
-  }, [displayLocos, map]);
+  }, [handleMapChange]);
 
   return (
     <>

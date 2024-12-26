@@ -1,19 +1,20 @@
 import { ScopeContextProvider } from "../contexts/scope.context";
 import { TScopeStore } from "../types";
-import { LiveStatus } from "./LiveStatus";
+import { LayersControl } from "./LayersControl";
 import { MapControls } from "./MapControls";
 import { MapRoot } from "./MapRoot";
-import { SignalsFilter } from "./SignalsFilter";
 
 export interface WidgetProps {
-  locos: TScopeStore["locos"];
+  trackCoordinates: TScopeStore["trackCoordinates"];
+  stations: TScopeStore["stations"];
+  tsos: TScopeStore["tsos"];
 }
 
 export const Widget = (props: WidgetProps) => {
-  const { locos } = props;
+  const { trackCoordinates, stations, tsos } = props;
 
   return (
-    <ScopeContextProvider init={{ locos }}>
+    <ScopeContextProvider init={{ trackCoordinates, stations, tsos }}>
       <Entry />
     </ScopeContextProvider>
   );
@@ -25,10 +26,7 @@ const Entry = () => {
       <MapRoot />
 
       <div className="absolute left-6 top-6 z-[2]">
-        <SignalsFilter />
-      </div>
-      <div className="absolute bottom-6 left-6 z-[2]">
-        <LiveStatus />
+        <LayersControl />
       </div>
       <div className="absolute bottom-6 right-6 z-[2]">
         <MapControls />

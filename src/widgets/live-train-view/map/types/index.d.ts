@@ -1,8 +1,8 @@
 import { LocoSignalStatus } from "../enums";
 
 export type TScopeStore = {
-  locos: TLocoData[];
-  displayLocos: TLocoData[];
+  locos: TScopeLocoData[];
+  displayLocos: TScopeLocoData[];
   showRailwayLayer: boolean;
   showInfoTooltipLocoMarkerInstanceId: string | null;
   showChildrenTooltipLocoClusterInstanceId: string | null;
@@ -11,7 +11,7 @@ export type TScopeStore = {
   showLostSignal: boolean;
 };
 
-export type TLocoData = {
+export type TScopeLocoData = {
   locoId: string;
   gps: { lat: number; lng: number };
   lastSeenUtc: Date;

@@ -1,0 +1,83 @@
+[
+  {
+    "lng": -73.8573359403681,
+    "lat": 45.6350041283507,
+    "location_name": "STE THERESE",
+    "abbreviation": "TSTH",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 1,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -73.72246487773518,
+    "lat": 45.58942004881499,
+    "location_name": "ST MARTIN JCT",
+    "abbreviation": "TMAR",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 2,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -73.3125501857435,
+    "lat": 45.99593882026029,
+    "location_name": "LANORAIE",
+    "abbreviation": "TLAN",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 3,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -72.5512289646697,
+    "lat": 46.3512769148984,
+    "location_name": "TROIS-RIVIERES",
+    "abbreviation": "TTRO",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 4,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -72.01355278175623,
+    "lat": 46.646912541999626,
+    "location_name": "LACHEVROTIÈRE",
+    "abbreviation": "TLACHEV",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 5,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -71.9241610713402,
+    "lat": 46.6871939036868,
+    "location_name": "DESCHAMBAULT",
+    "abbreviation": "TDES",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 6,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -71.79189465351728,
+    "lat": 46.73510888471278,
+    "location_name": "ST. BASILE",
+    "abbreviation": "TSTBAS",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 7,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -71.71405884613631,
+    "lat": 46.75330501724431,
+    "location_name": "PONT ROUGE",
+    "abbreviation": "TPONT",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 8,
+    "__typename": "StationsByRouteID"
+  },
+  {
+    "lng": -71.3488647297912,
+    "lat": 46.7934540528561,
+    "location_name": "QUEBEC CITY YARD",
+    "abbreviation": "TQUE",
+    "route_id": "TSTH_TQUE",
+    "sequence_id": 9,
+    "__typename": "StationsByRouteID"
+  }
+]

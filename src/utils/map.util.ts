@@ -57,3 +57,26 @@ export const createClusters = <T extends { gps: { lat: number; lng: number } }>(
 
   return clusters;
 };
+
+export const reduceCoordinatesDensity = <T extends { gps: { lat: number; lng: number } }>(
+  data: T[],
+  threshold: number,
+): T[] => {
+  if (data.length < 2) return data;
+
+  const result = [data[0]];
+
+  for (let i = 1; i < data.length - 1; i++) {
+    const prev = result[result.length - 1].gps;
+    const curr = data[i].gps;
+    const distance = Math.sqrt(Math.pow(curr.lat - prev.lat, 2) + Math.pow(curr.lng - prev.lng, 2));
+
+    if (distance > threshold) {
+      result.push(data[i]);
+    }
+  }
+
+  result.push(data[data.length - 1]);
+
+  return result;
+};

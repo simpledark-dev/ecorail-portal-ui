@@ -3,7 +3,7 @@ import { MOCK_LOCOS_1, MOCK_LOCOS_2 } from "../mocks";
 import { MapWidget, MapWidgetProps } from "..";
 
 export default {
-  title: "Widget/LiveTrainView/Map",
+  title: "Widgets/LiveTrainView/Map",
   component: MapWidget,
 };
 

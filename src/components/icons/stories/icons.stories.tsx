@@ -13,9 +13,13 @@ export const Default: StoryFn = () => {
       <Icons.Info className="h-16 w-16 shrink-0 fill-red-500" />
       <Icons.Info className="h-16 w-16 shrink-0 fill-orange-500" />
 
-      <Icons.Plus className="fill-navy-500 h-16 w-16 shrink-0" />
-      <Icons.Minus className="fill-navy-500 h-16 w-16 shrink-0" />
-      <Icons.Focus className="fill-navy-500 h-16 w-16 shrink-0" />
+      <Icons.Plus className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Minus className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Focus className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.TopRightArrow className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.ChevronRight className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Logout className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.AdminPanel className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

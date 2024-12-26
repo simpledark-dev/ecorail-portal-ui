@@ -48,4 +48,27 @@ export const Icons = {
       <path d="m644-448-56-58 122-94-230-178-94 72-56-58 150-116 360 280-196 152Zm115 114-58-58 73-56 66 50-81 64Zm33 258L632-236 480-118 120-398l66-50 294 228 94-73-57-56-37 29-360-280 83-65L55-811l57-57 736 736-56 56ZM487-606Z" />
     </svg>
   ),
+  TopRightArrow: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M3.36666 13.8334L2.66666 13.1334L10.9667 4.83337H6.06666V3.83337H12.6667V10.4334H11.6667V5.53337L3.36666 13.8334Z"
+        fill="inherit"
+      />
+    </svg>
+  ),
+  ChevronRight: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="inherit">
+      <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+    </svg>
+  ),
+  Logout: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+    </svg>
+  ),
+  AdminPanel: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M680-280q25 0 42.5-17.5T740-340q0-25-17.5-42.5T680-400q-25 0-42.5 17.5T620-340q0 25 17.5 42.5T680-280Zm0 120q31 0 57-14.5t42-38.5q-22-13-47-20t-52-7q-27 0-52 7t-47 20q16 24 42 38.5t57 14.5ZM480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v227q-19-8-39-14.5t-41-9.5v-147l-240-90-240 90v188q0 47 12.5 94t35 89.5Q310-290 342-254t71 60q11 32 29 61t41 52q-1 0-1.5.5t-1.5.5Zm200 0q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80ZM480-494Z" />
+    </svg>
+  ),
 };

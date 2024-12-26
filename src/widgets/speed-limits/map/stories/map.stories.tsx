@@ -10,7 +10,7 @@ import MOCK_STATIONS from "../mocks/stations.mock.json";
 import MOCK_TSOS from "../mocks/tsos.mock.json";
 
 export default {
-  title: "Widget/SpeedLimits/Map",
+  title: "Widgets/SpeedLimits/Map",
   component: MapWidget,
 };
 

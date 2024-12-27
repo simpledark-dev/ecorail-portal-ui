@@ -1,5 +1,13 @@
 import moment from "moment";
 import { LocoSignalStatus } from "../enums";
+import { TScopeLocoData } from "../types";
+
+export const transformToScopeLocos = <T>(
+  input: T[],
+  transformer: (item: T) => TScopeLocoData,
+): TScopeLocoData[] => {
+  return input.map(transformer);
+};
 
 export const classifyLocoSignalStatus = (lastSeenUtc: Date): LocoSignalStatus => {
   const currentTime = moment();

@@ -58,7 +58,7 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
     });
 
     storeSelectors.setState({ displayLocos: filteredLocos });
-  }, [showLiveSignal, showRecentlySignal, showLostSignal]);
+  }, [locos, showLiveSignal, showRecentlySignal, showLostSignal]);
 
   return (
     <ScopeContext.Provider value={{ store: storeRef.current, eventBus: eventBusRef.current }}>

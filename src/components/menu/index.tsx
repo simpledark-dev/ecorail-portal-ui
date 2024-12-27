@@ -1,11 +1,11 @@
-type TMenuItem = {
+type TScopeMenuItem = {
   icon: React.ReactElement;
   label: string;
   action: () => void;
 };
 
 export interface MenuProps {
-  items: TMenuItem[];
+  items: TScopeMenuItem[];
 }
 
 export const Menu = ({ items }: MenuProps) => {
@@ -30,7 +30,7 @@ export const Menu = ({ items }: MenuProps) => {
 };
 
 interface MenuItemProps {
-  item: TMenuItem;
+  item: TScopeMenuItem;
 }
 
 const MenuItem = (props: MenuItemProps) => {

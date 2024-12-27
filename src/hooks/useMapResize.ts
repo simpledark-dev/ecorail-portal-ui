@@ -1,13 +1,14 @@
 import React from "react";
 import { useMap } from "react-leaflet";
 
-export const useMapResize = () => {
+export const useMapResize = (callback?: () => void) => {
   const map = useMap();
 
   const handleResize = React.useCallback(() => {
     map.invalidateSize();
     map.flyTo(map.getCenter());
-  }, [map]);
+    callback && callback();
+  }, [map, callback]);
 
   React.useEffect(() => {
     handleResize();

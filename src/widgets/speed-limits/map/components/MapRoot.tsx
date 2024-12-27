@@ -24,13 +24,8 @@ export const MapRoot = () => {
       scrollWheelZoom={true}
       minZoom={5}
       maxZoom={17}
+      className="relative z-[1] h-full w-full overflow-hidden"
       css={css`
-        height: 100%;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-
         & .leaflet-control-attribution {
           opacity: 0 !important;
         }

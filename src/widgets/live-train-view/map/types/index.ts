@@ -1,5 +1,3 @@
-import { LocoSignalStatus } from "../enums";
-
 export type TScopeStore = {
   locos: TScopeLocoData[];
   displayLocos: TScopeLocoData[];

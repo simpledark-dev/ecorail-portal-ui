@@ -1,13 +1,16 @@
 import React from "react";
 import { StoreApi } from "zustand";
 import { TScopeStore } from "../types";
+import { createSelectors, wildCardSearch } from "@/utils/common.util";
 import { createScopeStore } from "../stores/scope.store";
-import { createSelectors } from "@/utils/common.util";
 
 const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore> } | undefined>(undefined);
 
 interface ScopeContextProviderProps {
-  init: TScopeStore;
+  init: Pick<
+    TScopeStore,
+    "title" | "icon" | "options" | "selectedOption" | "onSelectedOptionChange"
+  >;
   children: React.ReactNode;
 }
 
@@ -16,10 +19,17 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
 
   const storeRef = React.useRef<StoreApi<TScopeStore>>(createScopeStore(init));
   const storeSelectors = createSelectors(storeRef.current);
+  const options = storeSelectors.use.options();
+  const searchInput = storeSelectors.use.searchInput();
+
+  React.useEffect(() => {
+    storeSelectors.setState({ displayOptions: wildCardSearch(options, searchInput) });
+  }, [searchInput]);
 
   React.useEffect(() => {
     storeSelectors.setState({
       ...init,
+      displayOptions: init.options,
     });
   }, [init]);
 

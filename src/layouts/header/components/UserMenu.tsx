@@ -61,7 +61,7 @@ export const UserMenu = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             ref={refs.setFloating}
             {...getFloatingProps()}
             style={{
@@ -69,7 +69,6 @@ export const UserMenu = () => {
               top: y ?? 0,
               left: x ?? 0,
             }}
-            className="w-48 rounded-md bg-navy-700 shadow-lg"
           >
             <Menu
               items={userMenuItems.map((item) => ({

@@ -34,3 +34,52 @@ export const nanoid = (type: "digest" | "alpha" | "mix" = "mix", length: number 
   const alphabet = characterSets[type] || characterSets.mix;
   return customAlphabet(alphabet, length)();
 };
+
+export const wildCardSearch = (list: any[], input: string): any[] => {
+  const searchText = (item: any, level: number): any => {
+    let hasMatch = false;
+    let filteredItem = { ...item };
+
+    for (let key in item) {
+      if (item[key] == null) continue;
+
+      if (Array.isArray(item[key])) {
+        const filteredArray = item[key]
+          .map((subItem) =>
+            typeof subItem === "object" && subItem !== null
+              ? searchText(subItem, level + 1)
+              : subItem.toString().toUpperCase().includes(input.toUpperCase())
+                ? subItem
+                : null,
+          )
+          .filter(Boolean);
+
+        if (filteredArray.length > 0) {
+          filteredItem[key] = filteredArray;
+          hasMatch = true;
+        } else {
+          delete filteredItem[key];
+        }
+      } else if (typeof item[key] === "object") {
+        const nestedMatch = searchText(item[key], level + 1);
+
+        if (nestedMatch) {
+          filteredItem[key] = nestedMatch;
+          hasMatch = true;
+        } else {
+          delete filteredItem[key];
+        }
+      } else if (item[key].toString().toUpperCase().includes(input.toUpperCase())) {
+        hasMatch = true;
+      }
+    }
+
+    if (hasMatch && level === 0) {
+      return item;
+    }
+
+    return hasMatch ? filteredItem : null;
+  };
+
+  return list.map((value) => searchText(value, 0)).filter(Boolean);
+};

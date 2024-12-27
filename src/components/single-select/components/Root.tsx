@@ -8,6 +8,7 @@ import {
   offset,
   flip,
   shift,
+  autoUpdate,
   useDismiss,
   useClick,
   useInteractions,
@@ -39,7 +40,7 @@ export const Root = (props: RootProps) => {
     </ScopeContextProvider>
   );
 };
-``;
+
 const Entry = () => {
   const scopeContext = useScopeContext();
   const scopeStore = scopeContext.store;
@@ -57,6 +58,7 @@ const Entry = () => {
     onOpenChange: (v) => {
       scopeStore.setState({ showMenu: v });
     },
+    whileElementsMounted: autoUpdate,
   });
 
   const dismiss = useDismiss(context, {
@@ -73,7 +75,7 @@ const Entry = () => {
     <div>
       <div className="min-w-[180px]">
         <label
-          className="mb-2 block cursor-pointer text-sm font-semibold text-navy-700"
+          className="mb-2 block w-fit cursor-pointer text-sm font-semibold text-navy-700"
           htmlFor={`single-select-${instanceId}`}
         >
           {title}
@@ -82,7 +84,7 @@ const Entry = () => {
           id={`single-select-${instanceId}`}
           className={cn(
             "w-fit cursor-pointer rounded-[8px] border border-gray-400 bg-white px-[16px] py-[12px] drop-shadow-sm",
-            { "border-blue-500": showMenu },
+            { "!border-blue-500": showMenu },
           )}
           type="button"
           ref={refs.setReference}
@@ -124,6 +126,7 @@ const Entry = () => {
               top: y ?? 0,
               left: x ?? 0,
             }}
+            className="z-[10]"
           >
             <Options />
           </motion.div>

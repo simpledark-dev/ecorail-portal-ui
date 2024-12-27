@@ -11,7 +11,7 @@ export interface MenuProps {
 export const Menu = ({ items }: MenuProps) => {
   return (
     <nav
-      className="w-48 overflow-hidden rounded-md border border-gray-400 bg-white py-2 shadow-sm"
+      className="min-w-[180px] overflow-hidden rounded-md border border-gray-400 bg-white py-2 shadow-sm"
       aria-label="menu"
       role="menu"
     >

@@ -8,6 +8,7 @@ import {
   useDismiss,
   useClick,
   useInteractions,
+  autoUpdate,
 } from "@floating-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu } from "@/components/menu";
@@ -25,6 +26,7 @@ export const UserMenu = () => {
     middleware: [offset(8), flip(), shift()],
     open: isOpen,
     onOpenChange: setIsOpen,
+    whileElementsMounted: autoUpdate,
   });
 
   const dismiss = useDismiss(context, {

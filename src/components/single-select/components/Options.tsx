@@ -66,7 +66,7 @@ export const Options = () => {
       )}
 
       {displayOptions.length > 0 && (
-        <ul className="my-2 space-y-1">
+        <ul className="my-2 max-h-[250px] space-y-1 overflow-auto">
           {displayOptions.map((option) => {
             return (
               <li key={option.id} role="listitem">

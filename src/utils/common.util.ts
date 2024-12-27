@@ -45,7 +45,7 @@ export const wildCardSearch = (list: any[], input: string): any[] => {
 
       if (Array.isArray(item[key])) {
         const filteredArray = item[key]
-          .map((subItem) =>
+          .map((subItem: any) =>
             typeof subItem === "object" && subItem !== null
               ? searchText(subItem, level + 1)
               : subItem.toString().toUpperCase().includes(input.toUpperCase())

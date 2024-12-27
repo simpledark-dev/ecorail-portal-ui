@@ -28,7 +28,7 @@ const Entry = () => {
   const breadcrumbItems = scopeStore.use.breadcrumbItems();
 
   return (
-    <header className="z-[99] flex items-center justify-between gap-5 bg-navy-700 px-6 py-3">
+    <header className="sticky top-0 z-[99] flex items-center justify-between gap-5 bg-navy-700 px-6 py-3">
       <Breadcrumb items={breadcrumbItems} />
       <div className="flex items-center justify-center gap-6">
         <a

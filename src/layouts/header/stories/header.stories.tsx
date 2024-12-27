@@ -1,11 +1,12 @@
-import { StoryFn } from "@storybook/react";
-import { Header } from "..";
+import { Meta, StoryFn } from "@storybook/react";
 import { Icons } from "@/components/icons";
 import React from "react";
+import { Header } from "..";
 
 export default {
   title: "Layout/Header",
-};
+  component: Header,
+} as Meta;
 
 export const Default: StoryFn = () => {
   const [lang, setLang] = React.useState("EN");

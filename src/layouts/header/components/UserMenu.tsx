@@ -50,7 +50,7 @@ export const UserMenu = () => {
           {user.email}
         </p>
         <img
-          className="h-8 w-8 shrink-0 transition-all duration-150 group-hover:contrast-125"
+          className="h-8 w-8 shrink-0 rounded-full object-cover object-center transition-all duration-150 group-hover:contrast-125"
           src="/images/avatar-default.png"
         />
       </button>

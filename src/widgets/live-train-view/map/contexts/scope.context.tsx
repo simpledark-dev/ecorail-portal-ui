@@ -66,7 +66,7 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
     </ScopeContext.Provider>
   );
 });
-ScopeContextProvider.displayName = "Widget.ScopeContextProvider";
+ScopeContextProvider.displayName = "UIScopeContextProvider";
 
 export const useScopeContext = () => {
   const context = React.useContext(ScopeContext);

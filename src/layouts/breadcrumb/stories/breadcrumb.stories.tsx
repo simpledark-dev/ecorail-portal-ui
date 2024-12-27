@@ -1,9 +1,10 @@
-import { StoryFn } from "storybook/internal/types";
+import { Meta, StoryFn } from "@storybook/react";
 import { Breadcrumb } from "..";
 
 export default {
   title: "Layout/Breadcrumb",
-};
+  component: Breadcrumb,
+} as Meta;
 
 export const Default: StoryFn = () => {
   const items = [

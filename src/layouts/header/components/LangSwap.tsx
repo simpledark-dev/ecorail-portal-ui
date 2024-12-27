@@ -15,13 +15,14 @@ export const LangSwap = () => {
 
   const handleLangChange = () => {
     const nextLang = getNextLang();
+    scopeStore.setState({ currentLang: nextLang });
     onLangChange(nextLang);
   };
 
   return (
     <button
       onClick={handleLangChange}
-      className="group rounded-[4px] p-2 transition-colors duration-150 hover:bg-white/15 active:bg-white/30"
+      className="group rounded-[4px] p-2 transition-colors duration-150 hover:bg-white/[15%] active:bg-white/[30%]"
     >
       <p className="text-sm font-medium uppercase text-neutral-100 transition-colors duration-150 group-hover:text-neutral-0">
         {currentLang.toUpperCase()}

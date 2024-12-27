@@ -6,12 +6,12 @@ import { createSelectors } from "@/utils/common.util";
 
 const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore> } | undefined>(undefined);
 
-interface ScopeContextproviderProps {
+interface ScopeContextProviderProps {
   init: TScopeStore;
   children: React.ReactNode;
 }
 
-export const ScopeContextProvider = React.memo((props: ScopeContextproviderProps) => {
+export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps) => {
   const { init, children } = props;
 
   const storeRef = React.useRef<StoreApi<TScopeStore>>(createScopeStore(init));
@@ -27,7 +27,7 @@ export const ScopeContextProvider = React.memo((props: ScopeContextproviderProps
     <ScopeContext.Provider value={{ store: storeRef.current }}>{children}</ScopeContext.Provider>
   );
 });
-ScopeContextProvider.displayName = "Widget.ScopeContextProvider";
+ScopeContextProvider.displayName = "UIScopeContextProvider";
 
 export const useScopeContext = () => {
   const context = React.useContext(ScopeContext);

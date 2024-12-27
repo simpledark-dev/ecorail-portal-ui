@@ -29,7 +29,7 @@ export const DialogContainer = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-[#3C4B65]/20"
+            className="absolute inset-0 bg-[#3C4B65]/[20%]"
           >
             <ul
               className="fixed m-0 h-full list-none overflow-hidden p-0"

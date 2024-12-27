@@ -1,5 +1,6 @@
 import React from "react";
 import ecorail from "./ecorail";
+import { BrowserRouter } from "react-router-dom";
 import "../src/assets/global.css";
 
 export const parameters = {
@@ -18,9 +19,11 @@ export const globalTypes = {};
 export const decorators = [
   (Story, context) => {
     return (
-      <main className="h-full w-full font-inter antialiased">
-        <Story />
-      </main>
+      <BrowserRouter>
+        <main className="h-full w-full font-inter antialiased">
+          <Story />
+        </main>
+      </BrowserRouter>
     );
   },
 ];

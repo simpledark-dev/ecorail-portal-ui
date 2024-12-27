@@ -1,17 +1,14 @@
 import React from "react";
 import { StoreApi } from "zustand";
 import { TScopeStore } from "../types";
-import EventEmitter from "eventemitter3";
-import { createScopeStore } from "../stores/scope.store";
 import { createSelectors } from "@/utils/common.util";
-import { ScopeEventName } from "../enums";
+import { createScopeStore } from "../stores/scope.store";
+import { useLocation } from "react-router-dom";
 
-const ScopeContext = React.createContext<
-  { store: StoreApi<TScopeStore>; eventBus: EventEmitter<ScopeEventName> } | undefined
->(undefined);
+const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore> } | undefined>(undefined);
 
 interface ScopeContextProviderProps {
-  init: Pick<TScopeStore, "trackCoordinates" | "stations" | "tsos">;
+  init: Pick<TScopeStore, "company" | "navItems" | "show" | "collapse" | "onCollapseChange">;
   children: React.ReactNode;
 }
 
@@ -19,9 +16,10 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
   const { init, children } = props;
 
   const storeRef = React.useRef<StoreApi<TScopeStore>>(createScopeStore(init));
-  const eventBusRef = React.useRef(new EventEmitter<ScopeEventName>());
   const storeSelectors = createSelectors(storeRef.current);
-  const stations = storeSelectors.use.stations();
+  const navItems = storeSelectors.use.navItems();
+
+  const location = useLocation();
 
   React.useEffect(() => {
     storeSelectors.setState({
@@ -30,15 +28,12 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
   }, [init]);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      eventBusRef.current.emit(ScopeEventName.MAP_RECENTER);
-    }, 200);
-  }, [stations]);
+    const currentSelectedItem = navItems.find((item) => location.pathname === item.href);
+    storeSelectors.setState({ selectedItem: currentSelectedItem });
+  }, [location, navItems]);
 
   return (
-    <ScopeContext.Provider value={{ store: storeRef.current, eventBus: eventBusRef.current }}>
-      {children}
-    </ScopeContext.Provider>
+    <ScopeContext.Provider value={{ store: storeRef.current }}>{children}</ScopeContext.Provider>
   );
 });
 ScopeContextProvider.displayName = "UIScopeContextProvider";

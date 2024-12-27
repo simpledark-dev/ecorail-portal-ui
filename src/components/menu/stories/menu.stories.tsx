@@ -1,10 +1,11 @@
 import { Icons } from "@/components/icons";
-import { StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Menu } from "..";
 
 export default {
   title: "Components/Menu",
-};
+  component: Menu,
+} as Meta;
 
 export const Default: StoryFn = () => {
   const menuItems = [

@@ -1,9 +1,9 @@
-import { StoryFn } from "storybook/internal/types";
+import { Meta, StoryFn } from "@storybook/react";
 import { Icons } from "..";
 
 export default {
   title: "Components/Icons",
-};
+} as Meta;
 
 export const Default: StoryFn = () => {
   return (
@@ -20,6 +20,11 @@ export const Default: StoryFn = () => {
       <Icons.ChevronRight className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Logout className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.AdminPanel className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.LiveTV className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.BarChart className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.ListAlt className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Speed className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.ChevronLeft className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

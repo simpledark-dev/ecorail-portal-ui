@@ -1,7 +1,7 @@
 import { Icons } from "@/components/icons";
 import { Link } from "react-router-dom";
 
-interface BreadcrumbProps {
+export interface BreadcrumbProps {
   items: { label: string; href: string }[];
 }
 

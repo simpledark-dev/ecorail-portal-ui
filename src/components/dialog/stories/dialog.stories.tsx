@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { DialogProvider, useDialog } from "..";
 import { Icons } from "@/components/icons";
 
@@ -12,7 +12,7 @@ export default {
       </DialogProvider>
     ),
   ],
-};
+} as Meta;
 
 export const Default: StoryFn = () => {
   const dialog = useDialog();

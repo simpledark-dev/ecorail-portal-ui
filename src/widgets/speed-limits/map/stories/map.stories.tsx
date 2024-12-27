@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { MapWidget, MapWidgetProps } from "..";
 import {
   transformToScopeStations,
@@ -12,7 +12,7 @@ import MOCK_TSOS from "../mocks/tsos.mock.json";
 export default {
   title: "Widgets/SpeedLimits/Map",
   component: MapWidget,
-};
+} as Meta;
 
 const Template: StoryFn<MapWidgetProps> = (args) => {
   return (

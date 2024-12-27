@@ -1,11 +1,11 @@
-import { StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { MOCK_LOCOS_1, MOCK_LOCOS_2 } from "../mocks";
 import { MapWidget, MapWidgetProps } from "..";
 
 export default {
   title: "Widgets/LiveTrainView/Map",
   component: MapWidget,
-};
+} as Meta;
 
 const Template: StoryFn<MapWidgetProps> = (args) => {
   return (

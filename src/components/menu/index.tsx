@@ -4,7 +4,7 @@ type TMenuItem = {
   action: () => void;
 };
 
-interface MenuProps {
+export interface MenuProps {
   items: TMenuItem[];
 }
 

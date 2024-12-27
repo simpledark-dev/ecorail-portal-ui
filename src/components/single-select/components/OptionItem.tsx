@@ -2,6 +2,7 @@ import React from "react";
 import { useScopeContext } from "../contexts/scope.context";
 import { TScopeOptionConfigItem } from "../types";
 import { cn } from "@/utils/common.util";
+import _ from "lodash";
 
 interface OptionItemProps {
   option: TScopeOptionConfigItem;
@@ -12,16 +13,16 @@ export const OptionItem = (props: OptionItemProps) => {
 
   const scopeContext = useScopeContext();
   const scopeStore = scopeContext.store;
-  const selectedOption = scopeStore.use.selectedOption();
-  const onSelectedOptionChange = scopeStore.use.onSelectedOptionChange();
+  const selectedValue = scopeStore.use.selectedValue();
+  const onSelectedValueChange = scopeStore.use.onSelectedValueChange();
 
   const isSelected = React.useMemo(() => {
-    return selectedOption?.id === option.id;
-  }, [selectedOption]);
+    return _.isEqual(selectedValue, option.value);
+  }, [selectedValue]);
 
   const handleClickOption = () => {
-    scopeStore.setState({ selectedOption: option, showMenu: false });
-    onSelectedOptionChange(option);
+    scopeStore.setState({ selectedValue: option.value, showMenu: false });
+    onSelectedValueChange(option.value);
     option.action && option.action();
   };
 

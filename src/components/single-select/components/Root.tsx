@@ -15,24 +15,25 @@ import {
 } from "@floating-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn, nanoid } from "@/utils/common.util";
+import _ from "lodash";
 
 export interface RootProps {
   title: TScopeStore["title"];
   icon: TScopeStore["icon"];
   options: TScopeStore["options"];
-  selectedOption?: TScopeStore["selectedOption"];
-  onSelectedOptionChange?: TScopeStore["onSelectedOptionChange"];
+  selectedValue?: TScopeStore["selectedValue"];
+  onSelectedValueChange?: TScopeStore["onSelectedValueChange"];
 }
 
 export const Root = (props: RootProps) => {
-  const { options, selectedOption = null, onSelectedOptionChange = () => {}, ...rest } = props;
+  const { options, selectedValue = null, onSelectedValueChange = () => {}, ...rest } = props;
 
   return (
     <ScopeContextProvider
       init={{
         options,
-        selectedOption: selectedOption || options.length > 0 ? options[0] : null,
-        onSelectedOptionChange,
+        selectedValue: selectedValue || options.length > 0 ? options[0].value : null,
+        onSelectedValueChange,
         ...rest,
       }}
     >
@@ -47,7 +48,14 @@ const Entry = () => {
   const title = scopeStore.use.title();
   const icon = scopeStore.use.icon();
   const showMenu = scopeStore.use.showMenu();
-  const selectedOption = scopeStore.use.selectedOption();
+  const options = scopeStore.use.options();
+  const selectedValue = scopeStore.use.selectedValue();
+
+  const selectedOption = React.useMemo(() => {
+    return options.find((v) => {
+      return _.isEqual(v.value, selectedValue);
+    });
+  }, [options, selectedValue]);
 
   const instanceId = React.useRef(nanoid("alpha"));
 

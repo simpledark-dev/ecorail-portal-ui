@@ -7,24 +7,24 @@ export default {
   title: "Components/SingleSelect",
   component: SingleSelect,
   argTypes: {
-    onSelectedOptionChange: {
-      action: "onSelectedOptionChange",
-      description: "Callback when the selected option change",
+    onSelectedValueChange: {
+      action: "onSelectedValueChange",
+      description: "Callback when the selected value change",
     },
   },
 } as Meta;
 
 export const Default: StoryFn = (args) => {
-  const { onSelectedOptionChange } = args;
+  const { onSelectedValueChange } = args;
 
   return (
     <>
       <SingleSelect
-        onSelectedOptionChange={onSelectedOptionChange}
+        onSelectedValueChange={onSelectedValueChange}
         title="Focus Locomotive"
         icon={<Icons.CenterFocus className="h-5 w-5" />}
         options={[
-          { id: nanoid(), label: "All Locomotives", value: undefined },
+          { id: nanoid(), label: "All Locomotives", value: null },
           { id: nanoid(), label: "VIA 900", value: "via-900" },
           { id: nanoid(), label: "VIA 6424", value: "via-6424" },
           { id: nanoid(), label: "VIA 2202", value: "via-2202" },

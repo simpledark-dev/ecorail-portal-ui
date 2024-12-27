@@ -5,8 +5,8 @@ export type TScopeStore = {
   options: TScopeOptionConfigItem[];
   searchInput: string;
   displayOptions: TScopeOptionConfigItem[];
-  selectedOption: TScopeOptionConfigItem | null;
-  onSelectedOptionChange: (option: TScopeOptionConfigItem) => void;
+  selectedValue: any | null;
+  onSelectedValueChange: (value: any) => void;
 };
 
 export type TScopeOptionConfigItem = {

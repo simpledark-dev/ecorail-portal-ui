@@ -5,6 +5,12 @@ import { nanoid } from "@/utils/common.util";
 export default {
   title: "Components/DateRangePicker",
   component: DateRangePicker,
+  argTypes: {
+    onChange: {
+      action: "onChange",
+      description: "Callback when the date range value change",
+    },
+  },
 } as Meta;
 
 const Template: StoryFn<DateRangePickerProps> = (args) => {

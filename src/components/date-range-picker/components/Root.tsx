@@ -12,6 +12,7 @@ export interface RootProps {
   maxRange?: TScopeStore["maxRange"];
   selectedStartDate?: TScopeStore["selectedStartDate"];
   selectedEndDate?: TScopeStore["selectedEndDate"];
+  onChange?: TScopeStore["onChange"];
 }
 
 export const Root = (props: RootProps) => {
@@ -22,6 +23,7 @@ export const Root = (props: RootProps) => {
     selectedStartDate,
     selectedEndDate,
     maxRange = 30,
+    onChange = () => {},
   } = props;
 
   const defaultStartDate = selectedStartDate || moment().subtract(3, "days").toDate();
@@ -36,6 +38,7 @@ export const Root = (props: RootProps) => {
         selectedStartDate: selectedStartDate || defaultStartDate,
         selectedEndDate: selectedEndDate || defaultEndDate,
         maxRange: maxRange,
+        onChange,
       }}
     >
       <Entry />

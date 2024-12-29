@@ -29,6 +29,7 @@ export const DateRangeSelect = () => {
   const maxRange = scopeStore.use.maxRange();
   const selectedStartDate = scopeStore.use.selectedStartDate();
   const selectedEndDate = scopeStore.use.selectedEndDate();
+  const onChange = scopeStore.use.onChange();
 
   const instanceId = React.useRef(nanoid("alpha"));
 
@@ -96,6 +97,7 @@ export const DateRangeSelect = () => {
         selectedStartDate: startDate,
         selectedEndDate: endDate,
       });
+      onChange(startDate, endDate);
     }
   };
 
@@ -123,6 +125,7 @@ export const DateRangeSelect = () => {
     if (!showCalendar) {
       setStartDate(selectedStartDate || null);
       setEndDate(selectedEndDate || null);
+      setTempStartDate(null);
     }
   }, [showCalendar, selectedStartDate, selectedEndDate]);
 

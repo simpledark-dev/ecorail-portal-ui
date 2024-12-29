@@ -15,6 +15,7 @@ export const SnapOptionItem = (props: SnapOptionItemProps) => {
   const scopeContext = useScopeContext();
   const scopeStore = scopeContext.store;
   const selectedSnapOptionId = scopeStore.use.selectedSnapOptionId();
+  const onChange = scopeStore.use.onChange();
 
   const isSelected = React.useMemo(() => {
     return _.isEqual(selectedSnapOptionId, option.id);
@@ -34,6 +35,7 @@ export const SnapOptionItem = (props: SnapOptionItemProps) => {
         selectedSnapOptionId: option.id,
         showSnapOptions: false,
       });
+      onChange(startDate.toDate(), endDate.toDate());
     }
 
     if (option.action) {

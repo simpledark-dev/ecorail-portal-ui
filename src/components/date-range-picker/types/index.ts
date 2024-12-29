@@ -8,6 +8,7 @@ export type TScopeStore = {
   maxRange: number;
   selectedStartDate: Date;
   selectedEndDate: Date;
+  onChange: (startDate: Date, endDate: Date) => void;
 };
 
 export type TScopeSnapOptionConfigItem = {

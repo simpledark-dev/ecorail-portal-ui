@@ -10,7 +10,13 @@ const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore> } | unde
 interface ScopeContextProviderProps {
   init: Pick<
     TScopeStore,
-    "title" | "disable" | "snapOptions" | "maxRange" | "selectedStartDate" | "selectedEndDate"
+    | "title"
+    | "disable"
+    | "snapOptions"
+    | "maxRange"
+    | "selectedStartDate"
+    | "selectedEndDate"
+    | "onChange"
   >;
   children: React.ReactNode;
 }

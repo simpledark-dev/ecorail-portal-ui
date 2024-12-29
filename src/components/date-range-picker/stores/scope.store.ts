@@ -4,7 +4,13 @@ import { TScopeStore } from "../types";
 export const createScopeStore = (
   init: Pick<
     TScopeStore,
-    "title" | "disable" | "snapOptions" | "maxRange" | "selectedStartDate" | "selectedEndDate"
+    | "title"
+    | "disable"
+    | "snapOptions"
+    | "maxRange"
+    | "selectedStartDate"
+    | "selectedEndDate"
+    | "onChange"
   >,
 ) => {
   return createStore<TScopeStore>(() => ({

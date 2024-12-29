@@ -43,7 +43,7 @@ export const ToggleButton = React.memo((props: ToggleButtonProps) => {
     <label
       htmlFor={`toggle-${instanceId.current}`}
       className={cn("inline-flex cursor-pointer items-center", {
-        "cursor-not-allowed opacity-50": disabled,
+        "!cursor-not-allowed opacity-50": disabled,
       })}
     >
       <input

@@ -27,6 +27,9 @@ export const Default: StoryFn = () => {
       <Icons.ChevronLeft className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.CenterFocus className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Search className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Close className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.CalendarToday className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.History className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

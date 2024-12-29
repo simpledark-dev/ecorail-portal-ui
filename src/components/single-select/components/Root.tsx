@@ -102,7 +102,7 @@ const Entry = () => {
           className={cn(
             "w-fit cursor-pointer rounded-[8px] border border-gray-400 bg-white px-[16px] py-[12px] drop-shadow-sm transition-colors duration-150",
             { "!border-blue-500": showMenu },
-            { "cursor-not-allowed opacity-50": disable },
+            { "!cursor-not-allowed opacity-50": disable },
           )}
           type="button"
           disabled={disable}
@@ -123,9 +123,10 @@ const Entry = () => {
               </p>
             </div>
             <Icons.ChevronDown
-              className={cn("h-5 w-5 fill-navy-700 transition-transform duration-150", {
+              className={cn("h-5 w-5 shrink-0 fill-navy-700 transition-transform duration-150", {
                 "rotate-180": showMenu,
               })}
+              aria-hidden="true"
             />
           </div>
         </button>

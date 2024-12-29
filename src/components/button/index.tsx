@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
 const themeVariants = cva(
-  "px-4 py-[10px] text-navy-700 rounded-[8px] whitespace-nowrap text-sm font-medium transition-colors duration-150 flex items-center justify-center flex-nowrap disabled:opacity-50 disabled:cursor-not-allowed",
+  "px-4 py-[10px] text-navy-700 rounded-[8px] whitespace-nowrap text-sm font-medium transition-colors duration-150 flex items-center justify-center flex-nowrap disabled:opacity-50 disabled:!cursor-not-allowed",
   {
     variants: {
       variant: {

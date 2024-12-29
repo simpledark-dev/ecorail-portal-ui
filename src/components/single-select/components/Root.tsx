@@ -90,17 +90,17 @@ const Entry = () => {
 
   return (
     <div className="relative z-[5]">
-      <div className="min-w-[180px]">
+      <div>
         <label
           className="mb-2 block w-fit cursor-pointer text-sm font-semibold text-navy-700"
-          htmlFor={`single-select-${instanceId}`}
+          htmlFor={`single-select-${instanceId.current}`}
         >
           {title}
         </label>
         <button
-          id={`single-select-${instanceId}`}
+          id={`single-select-${instanceId.current}`}
           className={cn(
-            "w-fit cursor-pointer rounded-[8px] border border-gray-400 bg-white px-[16px] py-[12px] drop-shadow-sm transition-colors duration-150",
+            "w-fit min-w-[150px] cursor-pointer rounded-[8px] border border-gray-400 bg-white px-[16px] py-[12px] drop-shadow-sm transition-colors duration-150",
             { "!border-blue-500": showMenu },
             { "!cursor-not-allowed opacity-50": disable },
           )}

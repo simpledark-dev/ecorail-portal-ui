@@ -9,6 +9,7 @@ import { MilepostsLayer } from "./MilepostsLayer";
 import { useScopeContext } from "../contexts/scope.context";
 import { MapEvents } from "./MapEvents";
 import { TSOsLayer } from "./TSOsLayer";
+import "leaflet/dist/leaflet.css";
 
 export const MapRoot = () => {
   const scopeContext = useScopeContext();

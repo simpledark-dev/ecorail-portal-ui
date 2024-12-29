@@ -34,3 +34,6 @@ Default.args = {};
 
 export const Disable = Template.bind({});
 Disable.args = { disable: true };
+
+export const WithControl = Template.bind({});
+WithControl.args = { selectedStartDate: new Date(), selectedEndDate: new Date() };

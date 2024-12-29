@@ -16,7 +16,7 @@ import { useScopeContext } from "../contexts/scope.context";
 import React from "react";
 import { css } from "@emotion/react";
 import moment from "moment";
-import useDevice from "@/components/dialog/hooks/useDevice";
+import { useDevice } from "@/hooks/useDevice";
 import { Button } from "@/components/button";
 import { cn, nanoid } from "@/utils/common.util";
 import { Icons } from "@/components/icons";
@@ -34,8 +34,8 @@ export const DateRangeSelect = () => {
   const instanceId = React.useRef(nanoid("alpha"));
 
   const [tempStartDate, setTempStartDate] = React.useState<Date | null>(null);
-  const [startDate, setStartDate] = React.useState<Date | null>(null);
-  const [endDate, setEndDate] = React.useState<Date | null>(null);
+  const [startDate, setStartDate] = React.useState<Date | null>(new Date());
+  const [endDate, setEndDate] = React.useState<Date | null>(new Date());
 
   const { isMobile } = useDevice();
 
@@ -123,8 +123,8 @@ export const DateRangeSelect = () => {
 
   React.useEffect(() => {
     if (!showCalendar) {
-      setStartDate(selectedStartDate || null);
-      setEndDate(selectedEndDate || null);
+      setStartDate(selectedStartDate || new Date());
+      setEndDate(selectedEndDate || new Date());
       setTempStartDate(null);
     }
   }, [showCalendar, selectedStartDate, selectedEndDate]);

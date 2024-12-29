@@ -41,7 +41,7 @@ const Entry = () => {
   return (
     <motion.div
       initial={{ marginLeft: 0 }}
-      animate={show ? { marginLeft: 0 } : { marginLeft: -256 }}
+      animate={show ? { marginLeft: 0 } : collapse ? { marginLeft: -64 } : { marginLeft: -256 }}
       className={cn("z-[99]", { "pointer-events-auto": show }, { "pointer-events-none": !show })}
     >
       <motion.div

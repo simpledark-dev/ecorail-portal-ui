@@ -42,6 +42,12 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
     storeRef.current.setState({ selectedSnapOptionId: matchedOption ? matchedOption.id : null });
   }, [selectedStartDate, selectedEndDate]);
 
+  React.useEffect(() => {
+    storeSelectors.setState({
+      ...init,
+    });
+  }, [init]);
+
   return (
     <ScopeContext.Provider value={{ store: storeRef.current }}>{children}</ScopeContext.Provider>
   );

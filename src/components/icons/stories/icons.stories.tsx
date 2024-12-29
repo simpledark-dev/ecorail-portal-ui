@@ -30,6 +30,8 @@ export const Default: StoryFn = () => {
       <Icons.Close className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.CalendarToday className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.History className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Person className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Train className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

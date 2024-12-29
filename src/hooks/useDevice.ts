@@ -1,6 +1,6 @@
 import { useWindowSize } from "react-use";
 
-const useDevice = () => {
+export const useDevice = () => {
   const { width } = useWindowSize();
 
   const isMobile = width < 768;
@@ -15,5 +15,3 @@ const useDevice = () => {
     isLargeDesktop,
   };
 };
-
-export default useDevice;

@@ -10,6 +10,8 @@ export const MapEvents = () => {
   const scopeStore = scopeContext.store;
   const scopeEventBus = scopeContext.eventBus;
   const displayLocos = scopeStore.use.displayLocos();
+  const locos = scopeStore.use.locos();
+  const focusLocoId = scopeStore.use.focusLocoId();
 
   const map = useMap();
 
@@ -34,6 +36,18 @@ export const MapEvents = () => {
     map.fire("zoomlevelschange");
   }, [map, displayLocos]);
 
+  const handleEventMapFocusLoco = React.useCallback(() => {
+    const targetLoco = locos.find((v) => v.locoId === focusLocoId);
+    if (targetLoco) {
+      const bounds = L.latLngBounds([[targetLoco.gps.lat, targetLoco.gps.lng]]);
+      map.fitBounds(bounds, {
+        padding: [MapConfig.RECENTER_PADDING, MapConfig.RECENTER_PADDING],
+      });
+      map.fire("zoom");
+      map.fire("zoomlevelschange");
+    }
+  }, [focusLocoId, locos]);
+
   React.useEffect(() => {
     scopeEventBus.on(ScopeEventName.MAP_ZOOM_IN, handleEventMapZoomIn);
     return () => {
@@ -54,6 +68,13 @@ export const MapEvents = () => {
       scopeEventBus.off(ScopeEventName.MAP_RECENTER, handleEventMapRecenter);
     };
   }, [handleEventMapRecenter]);
+
+  React.useEffect(() => {
+    scopeEventBus.on(ScopeEventName.MAP_FOCUS_LOCO, handleEventMapFocusLoco);
+    return () => {
+      scopeEventBus.off(ScopeEventName.MAP_FOCUS_LOCO, handleEventMapFocusLoco);
+    };
+  }, [handleEventMapFocusLoco]);
 
   return null;
 };

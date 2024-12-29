@@ -1,5 +1,4 @@
 export enum ScopeEventName {
-  MAP_FOCUS_LOCOS = "mapFocusLocos",
   MAP_FOCUS_LOCO = "mapFocusLoco",
   MAP_ZOOM_IN = "mapZoomIn",
   MAP_ZOOM_OUT = "mapZoomOut",

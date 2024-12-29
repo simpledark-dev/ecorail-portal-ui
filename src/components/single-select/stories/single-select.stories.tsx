@@ -15,12 +15,9 @@ export default {
 } as Meta;
 
 export const Default: StoryFn = (args) => {
-  const { onSelectedValueChange } = args;
-
   return (
     <>
       <SingleSelect
-        onSelectedValueChange={onSelectedValueChange}
         title="Focus Locomotive"
         icon={<Icons.CenterFocus className="h-5 w-5" />}
         options={[
@@ -30,6 +27,7 @@ export const Default: StoryFn = (args) => {
           { id: nanoid(), label: "VIA 2202", value: "via-2202" },
           { id: nanoid(), label: "VIA 2215", value: "via-2215", disable: true },
         ]}
+        {...args}
       />
     </>
   );
@@ -40,6 +38,19 @@ export const EmptyData: StoryFn = () => {
     <>
       <SingleSelect
         title="No Data Available"
+        icon={<Icons.CenterFocus className="h-5 w-5" />}
+        options={[]}
+      />
+    </>
+  );
+};
+
+export const Disable: StoryFn = () => {
+  return (
+    <>
+      <SingleSelect
+        title="Disable"
+        disable={true}
         icon={<Icons.CenterFocus className="h-5 w-5" />}
         options={[]}
       />

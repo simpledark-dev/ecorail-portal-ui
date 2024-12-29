@@ -7,13 +7,14 @@ import { SignalsFilter } from "./SignalsFilter";
 
 export interface RootProps {
   locos: TScopeStore["locos"];
+  focusLocoId?: TScopeStore["focusLocoId"];
 }
 
 export const Root = (props: RootProps) => {
-  const { locos } = props;
+  const { locos, focusLocoId = null } = props;
 
   return (
-    <ScopeContextProvider init={{ locos }}>
+    <ScopeContextProvider init={{ locos, focusLocoId }}>
       <Entry />
     </ScopeContextProvider>
   );

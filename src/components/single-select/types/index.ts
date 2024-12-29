@@ -1,6 +1,7 @@
 export type TScopeStore = {
   title: string | React.ReactElement;
   icon: string | React.ReactElement;
+  disable: boolean;
   showMenu: boolean;
   options: TScopeOptionConfigItem[];
   searchInput: string;

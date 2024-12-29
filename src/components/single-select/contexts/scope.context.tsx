@@ -7,7 +7,10 @@ import { createScopeStore } from "../stores/scope.store";
 const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore> } | undefined>(undefined);
 
 interface ScopeContextProviderProps {
-  init: Pick<TScopeStore, "title" | "icon" | "options" | "selectedValue" | "onSelectedValueChange">;
+  init: Pick<
+    TScopeStore,
+    "title" | "icon" | "disable" | "options" | "selectedValue" | "onSelectedValueChange"
+  >;
   children: React.ReactNode;
 }
 

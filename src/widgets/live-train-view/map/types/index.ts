@@ -1,6 +1,7 @@
 export type TScopeStore = {
   locos: TScopeLocoData[];
   displayLocos: TScopeLocoData[];
+  focusLocoId: string | null;
   showRailwayLayer: boolean;
   showInfoTooltipLocoMarkerInstanceId: string | null;
   showChildrenTooltipLocoClusterInstanceId: string | null;

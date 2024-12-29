@@ -12,7 +12,7 @@ const ScopeContext = React.createContext<
 >(undefined);
 
 interface ScopeContextProviderProps {
-  init: Pick<TScopeStore, "locos">;
+  init: Pick<TScopeStore, "locos" | "focusLocoId">;
   children: React.ReactNode;
 }
 

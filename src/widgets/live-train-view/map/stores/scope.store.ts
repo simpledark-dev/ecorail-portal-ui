@@ -1,7 +1,7 @@
 import { createStore } from "zustand";
 import { TScopeStore } from "../types";
 
-export const createScopeStore = (init: Pick<TScopeStore, "locos">) => {
+export const createScopeStore = (init: Pick<TScopeStore, "locos" | "focusLocoId">) => {
   return createStore<TScopeStore>(() => ({
     ...init,
     displayLocos: init.locos,

@@ -60,9 +60,17 @@ export const DateRangeSelect = () => {
   const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss]);
 
   const tileClass = ({ date, view }: TileArgs) => {
+    const today = moment().startOf("day");
+    const normalizedDate = moment(date).startOf("day");
+
+    if (view === "month") {
+      if (normalizedDate.isAfter(today)) {
+        return "lock-future";
+      }
+    }
+
     if (view === "month" && tempStartDate) {
       const maxDate = moment(tempStartDate).add(maxRange, "days").endOf("day");
-      const normalizedDate = moment(date).startOf("day");
       const startDate = moment(tempStartDate).startOf("day");
 
       if (normalizedDate.isBefore(startDate)) {
@@ -329,7 +337,7 @@ export const DateRangeSelect = () => {
                   Clear
                 </Button>
                 <Button
-                  variant={"blue"}
+                  variant={"navy"}
                   disabled={!!tempStartDate || !startDate || !endDate}
                   onClick={handleSelect}
                 >

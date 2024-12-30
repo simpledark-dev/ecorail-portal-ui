@@ -337,7 +337,7 @@ export const DateRangeSelect = () => {
                   Clear
                 </Button>
                 <Button
-                  variant={"navy"}
+                  variant={"navy-dark"}
                   disabled={!!tempStartDate || !startDate || !endDate}
                   onClick={handleSelect}
                 >

@@ -21,6 +21,9 @@ Brand.args = { variant: "brand" };
 export const Navy = Template.bind({});
 Navy.args = { variant: "navy" };
 
+export const NavyDark = Template.bind({});
+NavyDark.args = { variant: "navy-dark" };
+
 export const Neutral = Template.bind({});
 Neutral.args = { variant: "neutral" };
 

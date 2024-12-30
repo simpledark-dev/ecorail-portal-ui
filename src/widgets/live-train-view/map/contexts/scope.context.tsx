@@ -4,8 +4,8 @@ import { TScopeStore } from "../types";
 import EventEmitter from "eventemitter3";
 import { LocoSignalStatus, ScopeEventName } from "../enums";
 import { createScopeStore } from "../stores/scope.store";
-import { createSelectors } from "@/utils/common.util";
 import { classifyLocoSignalStatus } from "../utils";
+import { createSelectors } from "@/utils/common.util";
 
 const ScopeContext = React.createContext<
   { store: StoreApi<TScopeStore>; eventBus: EventEmitter<ScopeEventName> } | undefined
@@ -23,7 +23,7 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
   const eventBusRef = React.useRef(new EventEmitter<ScopeEventName>());
   const storeSelectors = createSelectors(storeRef.current);
   const locos = storeSelectors.use.locos();
-  const displayLocos = storeSelectors.use.displayLocos();
+  const focusLocoId = storeSelectors.use.focusLocoId();
   const showLiveSignal = storeSelectors.use.showLiveSignal();
   const showRecentlySignal = storeSelectors.use.showRecentlySignal();
   const showLostSignal = storeSelectors.use.showLostSignal();
@@ -35,10 +35,12 @@ export const ScopeContextProvider = React.memo((props: ScopeContextProviderProps
   }, [init]);
 
   React.useEffect(() => {
-    setTimeout(() => {
+    if (!focusLocoId) {
       eventBusRef.current.emit(ScopeEventName.MAP_RECENTER);
-    }, 200);
-  }, [displayLocos]);
+    } else {
+      eventBusRef.current.emit(ScopeEventName.MAP_FOCUS_LOCO);
+    }
+  }, [focusLocoId, showLiveSignal, showRecentlySignal, showLostSignal]);
 
   React.useEffect(() => {
     const filteredLocos = locos.filter((loco) => {

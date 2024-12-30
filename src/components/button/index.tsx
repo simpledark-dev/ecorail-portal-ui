@@ -10,6 +10,7 @@ const themeVariants = cva(
         default: cn("bg-white", "hover:bg-gray-50", "active:bg-gray-100"),
         brand: cn("bg-brand-500 text-white", "hover:bg-brand-400 active:bg-brand-600"),
         navy: cn("bg-navy-500 text-white", "hover:bg-navy-400 active:bg-navy-600"),
+        "navy-dark": cn("bg-navy-700 text-white", "hover:bg-navy-600 active:bg-navy-800"),
         neutral: cn("bg-neutral-500 text-white", "hover:bg-neutral-400 active:bg-neutral-600"),
         "neutral-light": cn(
           "bg-neutral-300 text-white",

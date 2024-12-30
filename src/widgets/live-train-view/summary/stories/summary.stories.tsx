@@ -15,3 +15,11 @@ Default.args = {
   totalRecentlySignals: 2,
   totalLostSignals: 1,
 };
+
+export const WithLoading = Template.bind({});
+WithLoading.args = {
+  totalLiveSignals: 5,
+  totalRecentlySignals: 2,
+  totalLostSignals: 1,
+  loading: true,
+};

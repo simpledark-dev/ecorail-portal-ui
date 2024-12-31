@@ -190,7 +190,7 @@ const LocoInfoTooltip = (props: LocoInfoTooltipProps) => {
           <div>
             <p className="mb-1 text-sm font-semibold text-navy-600">{loco.locoId}</p>
             <p className="text-xs text-neutral-400">
-              Last Seen: {moment(loco.lastSeenUtc).startOf("minutes").fromNow()}
+              Last Seen: {moment(loco.lastSeenUtc).locale("en").startOf("minutes").fromNow()}
             </p>
           </div>
         </div>

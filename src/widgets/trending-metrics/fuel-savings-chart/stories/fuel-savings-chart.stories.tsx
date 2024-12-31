@@ -41,3 +41,44 @@ const Template: StoryFn<FuelSavingsChartWidgetProps> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const WithEmpty = () => {
+  const sortedDataByDate = React.useMemo(() => {
+    return MOCK_FUEL_SAVINGS_TRENDS.sort(function (dailyA, dailyB) {
+      return momenttz.utc(dailyA.day).diff(momenttz.utc(dailyB.day).toDate());
+    });
+  }, []);
+
+  const dates = sortedDataByDate.map((daily) =>
+    momenttz.utc(daily.day).tz(momenttz.tz.guess()).toDate(),
+  );
+
+  return (
+    <FuelSavingsChartWidget
+      dates={dates}
+      compliance={{ data: [], unit: "%" }}
+      fuelSaving={{ data: [], unit: "%" }}
+    />
+  );
+};
+
+export const WithLoading = () => {
+  const sortedDataByDate = React.useMemo(() => {
+    return MOCK_FUEL_SAVINGS_TRENDS.sort(function (dailyA, dailyB) {
+      return momenttz.utc(dailyA.day).diff(momenttz.utc(dailyB.day).toDate());
+    });
+  }, []);
+
+  const dates = sortedDataByDate.map((daily) =>
+    momenttz.utc(daily.day).tz(momenttz.tz.guess()).toDate(),
+  );
+
+  return (
+    <FuelSavingsChartWidget
+      dates={dates}
+      compliance={{ data: [], unit: "%" }}
+      fuelSaving={{ data: [], unit: "%" }}
+      loading={true}
+    />
+  );
+};

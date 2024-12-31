@@ -49,3 +49,46 @@ const Template: StoryFn<FuelUsedChartWidgetProps> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const WithEmpty = () => {
+  const sortedDataByDate = React.useMemo(() => {
+    return MOCK_FUEL_SAVINGS_TRENDS.sort(function (dailyA, dailyB) {
+      return momenttz.utc(dailyA.day).diff(momenttz.utc(dailyB.day).toDate());
+    });
+  }, []);
+
+  const dates = sortedDataByDate.map((daily) =>
+    momenttz.utc(daily.day).tz(momenttz.tz.guess()).toDate(),
+  );
+
+  return (
+    <FuelUsedChartWidget
+      dates={dates}
+      fuelConsumption={{ data: [], unit: "litres" }}
+      estimatedFuelConsumption={{ data: [], unit: "litres" }}
+      distanceTraveled={{ data: [], unit: "Miles" }}
+    />
+  );
+};
+
+export const WithLoading = () => {
+  const sortedDataByDate = React.useMemo(() => {
+    return MOCK_FUEL_SAVINGS_TRENDS.sort(function (dailyA, dailyB) {
+      return momenttz.utc(dailyA.day).diff(momenttz.utc(dailyB.day).toDate());
+    });
+  }, []);
+
+  const dates = sortedDataByDate.map((daily) =>
+    momenttz.utc(daily.day).tz(momenttz.tz.guess()).toDate(),
+  );
+
+  return (
+    <FuelUsedChartWidget
+      dates={dates}
+      fuelConsumption={{ data: [], unit: "litres" }}
+      estimatedFuelConsumption={{ data: [], unit: "litres" }}
+      distanceTraveled={{ data: [], unit: "Miles" }}
+      loading={true}
+    />
+  );
+};

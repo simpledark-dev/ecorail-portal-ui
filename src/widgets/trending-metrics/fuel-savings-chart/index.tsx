@@ -2,6 +2,8 @@ import React from "react";
 import Chart from "chart.js/auto";
 import moment from "moment";
 import { cn } from "@/utils/common.util";
+import { motion, AnimatePresence } from "framer-motion";
+import { Spinner } from "@/components/spinner";
 
 export interface FuelSavingsChartWidgetProps {
   dates: Date[];
@@ -13,6 +15,7 @@ export interface FuelSavingsChartWidgetProps {
     data: number[];
     unit: string;
   };
+  loading?: boolean;
 }
 
 enum MetricKey {
@@ -55,7 +58,7 @@ const chartOptions = {
 };
 
 export const FuelSavingsChartWidget = (props: FuelSavingsChartWidgetProps) => {
-  const { dates, compliance, fuelSaving } = props;
+  const { dates, compliance, fuelSaving, loading } = props;
 
   const canvasContainerRef = React.useRef<HTMLDivElement | null>(null);
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
@@ -63,6 +66,9 @@ export const FuelSavingsChartWidget = (props: FuelSavingsChartWidgetProps) => {
 
   const [showComplianceMetric, setShowComplianceMetric] = React.useState(true);
   const [showFuelSavingMetric, setShowFuelSavingMetric] = React.useState(true);
+  const isEmptyData = React.useMemo(() => {
+    return compliance.data.every((v) => v === 0) && fuelSaving.data.every((v) => v === 0);
+  }, [compliance, fuelSaving]);
 
   const initializeChart = () => {
     if (!canvasContainerRef.current) return;
@@ -84,10 +90,12 @@ export const FuelSavingsChartWidget = (props: FuelSavingsChartWidgetProps) => {
     const globalMax = Math.max(
       showComplianceMetric ? maxCompliance : 0.01,
       showFuelSavingMetric ? maxFuelSaving : 0.01,
+      0.01,
     );
     const globalMin = Math.min(
       showComplianceMetric ? minCompliance : 0,
       showFuelSavingMetric ? minFuelSaving : 0,
+      0.01,
     );
     const sumGlobalMaxMin = globalMax + Math.abs(globalMin);
 
@@ -122,7 +130,7 @@ export const FuelSavingsChartWidget = (props: FuelSavingsChartWidgetProps) => {
       datasets: [
         {
           label: `Daily Compliance (${fuelSaving.unit})`,
-          data: compliance.data,
+          data: loading ? [] : compliance.data,
           fill: true,
           backgroundColor: gradientCompliance,
           borderColor: "#847CFB",
@@ -139,7 +147,7 @@ export const FuelSavingsChartWidget = (props: FuelSavingsChartWidgetProps) => {
         },
         {
           label: `Daily Fuel Savings (${compliance.unit})`,
-          data: fuelSaving.data,
+          data: loading ? [] : fuelSaving.data,
           fill: true,
           backgroundColor: gradientFuelSaving,
           borderColor: "#61D78A",
@@ -253,7 +261,35 @@ export const FuelSavingsChartWidget = (props: FuelSavingsChartWidgetProps) => {
           </button>
         </div>
       </div>
-      <div ref={canvasContainerRef} className="max-h-[350px] min-h-[250px]">
+      <div ref={canvasContainerRef} className="relative max-h-[350px] min-h-[250px]">
+        <AnimatePresence>
+          {!loading && isEmptyData && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 flex items-center justify-center bg-white/[10%] backdrop-blur-[2px]"
+            >
+              <p className="-translate-y-[32px] text-base font-medium text-neutral-600">
+                No Data to Display
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {loading && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 flex items-center justify-center bg-white/[10%] backdrop-blur-[2px]"
+            >
+              <Spinner className="-translate-y-[32px]" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <canvas ref={canvasRef} className="h-full w-full" />
       </div>
     </div>

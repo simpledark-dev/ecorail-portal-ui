@@ -1,17 +1,22 @@
 import { ScopeContextProvider } from "../contexts/scope.context";
 import { TScopeStore } from "../types";
+import { Body } from "./Body";
 import { Head } from "./Head";
+import { Pagination } from "./Pagination";
 
-export interface RootProps {
-  columns: TScopeStore["columns"];
-  data: TScopeStore["data"];
+export interface RootProps<T> {
+  columns: TScopeStore<T>["columns"];
+  data: TScopeStore<T>["data"];
+  pagination?: TScopeStore<T>["pagination"];
+  currentPage?: TScopeStore<T>["currentPage"];
+  onPageChange?: TScopeStore<T>["onPageChange"];
 }
 
-export const Root = (props: RootProps) => {
-  const { ...rest } = props;
+export const Root = <T extends any>(props: RootProps<T>) => {
+  const { pagination = undefined, currentPage = 1, onPageChange = () => {}, ...rest } = props;
 
   return (
-    <ScopeContextProvider init={{ ...rest }}>
+    <ScopeContextProvider init={{ pagination, currentPage, onPageChange, ...(rest as any) }}>
       <Entry />
     </ScopeContextProvider>
   );
@@ -19,8 +24,22 @@ export const Root = (props: RootProps) => {
 
 const Entry = () => {
   return (
-    <table>
-      <Head />
-    </table>
+    <div className="space-y-4">
+      <div className="rounded-[12px] border border-gray-400 bg-white px-5 py-8 drop-shadow-sm">
+        <div className="overflow-auto">
+          <table
+            cellSpacing={0}
+            cellPadding={0}
+            className="table w-full table-auto border-collapse"
+          >
+            <Head />
+            <Body />
+          </table>
+        </div>
+      </div>
+      <div className="float-right">
+        <Pagination />
+      </div>
+    </div>
   );
 };

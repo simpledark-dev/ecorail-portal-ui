@@ -209,4 +209,53 @@ export const Icons = {
       />
     </svg>
   ),
+  SwapVert: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="inherit">
+      <path d="M320-440v-287L217-624l-57-56 200-200 200 200-57 56-103-103v287h-80ZM600-80 400-280l57-56 103 103v-287h80v287l103-103 57 56L600-80Z" />
+    </svg>
+  ),
+  Sort: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill="inherit"
+        d="M384 96a32 32 0 0 1 64 0v786.752a32 32 0 0 1-54.592 22.656L95.936 608a32 32 0 0 1 0-45.312h.128a32 32 0 0 1 45.184 0L384 805.632V96zm192 45.248a32 32 0 0 1 54.592-22.592L928.064 416a32 32 0 0 1 0 45.312h-.128a32 32 0 0 1-45.184 0L640 218.496V928a32 32 0 1 1-64 0V141.248z"
+      />
+    </svg>
+  ),
+  SortUp: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill="inherit"
+        d="M384 141.248V928a32 32 0 1 0 64 0V218.56l242.688 242.688A32 32 0 1 0 736 416L438.592 118.656A32 32 0 0 0 384 141.248z"
+      />
+    </svg>
+  ),
+  SortDown: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill="inherit"
+        d="M576 96v709.568L333.312 562.816A32 32 0 1 0 288 608l297.408 297.344A32 32 0 0 0 640 882.688V96a32 32 0 0 0-64 0z"
+      />
+    </svg>
+  ),
+  KeyboardArrowLeft: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+    </svg>
+  ),
+  KeyboardArrowRight: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+    </svg>
+  ),
+  KeyboardDoubleArrowLeft: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z" />
+    </svg>
+  ),
+  KeyboardDoubleArrowRight: (props: React.ComponentPropsWithoutRef<"svg">) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
+    </svg>
+  ),
 };

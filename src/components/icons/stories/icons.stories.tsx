@@ -37,6 +37,14 @@ export const Default: StoryFn = () => {
       <Icons.LaptopMac className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Route className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Direction className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.SwapVert className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Sort className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.SortUp className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.SortDown className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.KeyboardArrowLeft className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.KeyboardArrowRight className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.KeyboardDoubleArrowLeft className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.KeyboardDoubleArrowRight className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

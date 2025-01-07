@@ -27,8 +27,6 @@ export const SnapOptionItem = (props: SnapOptionItemProps) => {
       const startDate = currentDate.clone().subtract(option.rangeDaysFromNow, "days");
       const endDate = currentDate.clone();
 
-      console.log(startDate.toDate(), endDate.toDate());
-
       scopeStore.setState({
         selectedStartDate: startDate.toDate(),
         selectedEndDate: endDate.toDate(),

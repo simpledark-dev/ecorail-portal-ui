@@ -83,3 +83,38 @@ export const wildCardSearch = (list: any[], input: string): any[] => {
 
   return list.map((value) => searchText(value, 0)).filter(Boolean);
 };
+
+export const getPagination = (
+  currentPage: number,
+  totalPages: number,
+  pageBufferSize: number = 2,
+): (number | "...")[] => {
+  currentPage = Math.ceil(currentPage);
+  totalPages = Math.ceil(totalPages);
+  pageBufferSize = Math.ceil(pageBufferSize);
+
+  const pages: (number | "...")[] = [];
+
+  pages.push(1);
+
+  if (currentPage > pageBufferSize + 2) {
+    pages.push("...");
+  }
+
+  const start = Math.max(2, currentPage - pageBufferSize);
+  const end = Math.min(totalPages - 1, currentPage + pageBufferSize);
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+
+  if (currentPage < totalPages - pageBufferSize - 1) {
+    pages.push("...");
+  }
+
+  if (totalPages > 1) {
+    pages.push(totalPages);
+  }
+
+  return pages;
+};

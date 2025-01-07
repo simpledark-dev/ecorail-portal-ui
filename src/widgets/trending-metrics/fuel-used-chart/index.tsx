@@ -277,8 +277,8 @@ export const FuelUsedChartWidget = (props: FuelUsedChartWidgetProps) => {
   }, []);
 
   return (
-    <div className="rounded-[12px] border border-gray-400 bg-white p-[24px] shadow-sm md:p-[32px]">
-      <div className="mb-[24px] md:mb-[32px]">
+    <div className="grid grid-cols-12 rounded-[12px] border border-gray-400 bg-white p-[24px] shadow-sm md:p-[32px]">
+      <div className="col-span-12 mb-[24px] md:mb-[32px]">
         <h2 className="mb-2 text-base font-semibold text-navy-700">
           Total Fuel Used & Miles Traveled
         </h2>
@@ -333,7 +333,7 @@ export const FuelUsedChartWidget = (props: FuelUsedChartWidgetProps) => {
           </button>
         </div>
       </div>
-      <div ref={canvasContainerRef} className="relative max-h-[350px] min-h-[250px]">
+      <div ref={canvasContainerRef} className="relative col-span-12 max-h-[350px] min-h-[250px]">
         <AnimatePresence>
           {!loading && isEmptyData && (
             <motion.div

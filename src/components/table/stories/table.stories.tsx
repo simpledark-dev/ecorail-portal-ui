@@ -6,6 +6,7 @@ import MOCK_TRIPS from "../mocks/trip.mock.json";
 import MOCK_TRIP_DETAILS from "../mocks/trip-details.mock.json";
 import { extractTimeComponentsFromMinutes } from "@/utils/datetime.util";
 import React from "react";
+import { Collapse } from "@/elements/collapse";
 
 export default {
   title: "Components/Table",
@@ -383,7 +384,7 @@ export const InnerTable: StoryFn = () => {
                 if (item.compliances.length > 0) {
                   return (
                     <button onClick={() => toggleRow(currentPage, index)}>
-                      {expandedRows[currentPage]?.has(index) ? "Hide" : "Show"} Compliances
+                      {expandedRows[currentPage]?.has(index) ? "Hide" : "Show"}
                     </button>
                   );
                 }
@@ -399,8 +400,8 @@ export const InnerTable: StoryFn = () => {
             focus: (_, index) => expandedRows[currentPage]?.has(index),
             customDataCell: {
               render: (item, index) => {
-                if (expandedRows[currentPage]?.has(index)) {
-                  return (
+                return (
+                  <Collapse isOpen={expandedRows[currentPage]?.has(index)}>
                     <div className="p-3">
                       <Table
                         columns={[
@@ -411,7 +412,7 @@ export const InnerTable: StoryFn = () => {
                           {
                             key: "actual_compliance_distance_mi",
                             label: "Actual Compliance Distance",
-                            format(value) {
+                            format: (value) => {
                               if (typeof value !== "number") return value;
                               return value.toFixed(2);
                             },
@@ -419,7 +420,7 @@ export const InnerTable: StoryFn = () => {
                           {
                             key: "possible_compliance_distance_mi",
                             label: "Possible Compliance Distance",
-                            format(value) {
+                            format: (value) => {
                               if (typeof value !== "number") return value;
                               return value.toFixed(2);
                             },
@@ -428,10 +429,8 @@ export const InnerTable: StoryFn = () => {
                         data={item.compliances}
                       />
                     </div>
-                  );
-                }
-
-                return <></>;
+                  </Collapse>
+                );
               },
             },
           },

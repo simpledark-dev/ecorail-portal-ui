@@ -71,7 +71,7 @@ export const DataCell = <T extends any>(props: DataCellProps<T>) => {
           "flex h-full items-center justify-start border-b border-gray-200 p-3 transition-colors duration-150",
           "text-left align-middle text-sm font-normal text-navy-700",
           { "group-hover/row:bg-gray-100": !isFocused },
-          { "border-blue-200 bg-blue-50 group-hover/row:bg-blue-100": isFocused },
+          { "border-blue-200 bg-blue-50 text-blue-700 group-hover/row:bg-blue-100": isFocused },
         )}
       >
         {column.customDataCell?.render

@@ -23,9 +23,12 @@ export const DataCellFullRow = <T extends any>(props: DataCellFullRowProps<T>) =
       colSpan={colSpan}
     >
       <div
-        className={cn("text-left align-middle text-sm font-normal text-navy-700", {
-          "border border-t-0 border-blue-200": isFocused,
-        })}
+        className={cn(
+          "border border-t-0 border-transparent text-left align-middle text-sm font-normal text-navy-700",
+          {
+            "border-blue-200": isFocused,
+          },
+        )}
       >
         {column.customDataCell?.render ? column.customDataCell?.render(record, rowIndex) : <></>}
       </div>

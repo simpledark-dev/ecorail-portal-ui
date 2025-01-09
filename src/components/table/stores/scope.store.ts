@@ -11,5 +11,6 @@ export const createScopeStore = <T>(
     currentPage: 0,
     showSnapOptions: false,
     selectedItemsPerPage: 0,
+    sortOption: null,
   }));
 };

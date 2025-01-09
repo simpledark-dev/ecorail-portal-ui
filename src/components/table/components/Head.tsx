@@ -8,8 +8,10 @@ export const Head = () => {
   const scopeStore = scopeContext.store;
   const columns = scopeStore.use.columns();
 
+  const regularColumns = columns.filter((c) => !c.fullRow);
+
   return (
-    <thead className="">
+    <thead className="select-none">
       <tr
         css={css`
           th:first-of-type > div {
@@ -24,7 +26,7 @@ export const Head = () => {
           }
         `}
       >
-        {columns.map((c) => {
+        {regularColumns.map((c) => {
           return <HeadCell key={String(c.key)} column={c} />;
         })}
       </tr>

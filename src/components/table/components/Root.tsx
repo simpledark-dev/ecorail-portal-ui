@@ -1,4 +1,4 @@
-import { ScopeContextProvider } from "../contexts/scope.context";
+import { ScopeContextProvider, useScopeContext } from "../contexts/scope.context";
 import { TScopeStore } from "../types";
 import { Body } from "./Body";
 import { Head } from "./Head";
@@ -23,6 +23,10 @@ export const Root = <T extends any>(props: RootProps<T>) => {
 };
 
 const Entry = () => {
+  const scopeContext = useScopeContext();
+  const scopeStore = scopeContext.store;
+  const pagination = scopeStore.use.pagination();
+
   return (
     <div className="space-y-4">
       <div className="rounded-[12px] border border-gray-400 bg-white px-5 py-8 drop-shadow-sm">
@@ -37,9 +41,12 @@ const Entry = () => {
           </table>
         </div>
       </div>
-      <div className="float-right">
-        <Pagination />
-      </div>
+
+      {pagination && (
+        <div className="float-right">
+          <Pagination />
+        </div>
+      )}
     </div>
   );
 };

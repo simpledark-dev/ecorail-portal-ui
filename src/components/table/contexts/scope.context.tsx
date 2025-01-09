@@ -2,7 +2,7 @@ import React from "react";
 import { StoreApi } from "zustand";
 import { TScopeStore } from "../types";
 import { createScopeStore } from "../stores/scope.store";
-import { createSelectors } from "@/utils/common.util";
+import { createSelectors, paginateData, sortData } from "@/utils/common.util";
 
 const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore<any>> } | undefined>(
   undefined,
@@ -22,27 +22,29 @@ export const ScopeContextProvider = React.memo(
     const pagination = storeSelectors.use.pagination();
     const selectedItemsPerPage = storeSelectors.use.selectedItemsPerPage();
     const currentPage = storeSelectors.use.currentPage();
+    const sortOption = storeSelectors.use.sortOption();
     const data = storeSelectors.use.data();
 
-    const handlePaginationData = () => {
-      let dataSlice = [];
-      if (pagination) {
-        const start = (currentPage - 1) * selectedItemsPerPage;
-        const end = start + selectedItemsPerPage;
+    const handleUpdateDisplayData = () => {
+      let updatedData = init.data;
 
-        dataSlice = init.data.slice(start, end);
-      } else {
-        dataSlice = init.data;
+      if (sortOption) {
+        updatedData = sortData(updatedData, sortOption.key, sortOption.direction);
+      }
+
+      if (pagination) {
+        updatedData = paginateData(updatedData, currentPage, selectedItemsPerPage);
       }
 
       storeSelectors.setState({
-        displayData: dataSlice,
+        displayData: updatedData,
       });
     };
 
     React.useEffect(() => {
       storeSelectors.setState({
         ...init,
+        columns: init.columns.filter((c) => c.show || c.show === undefined),
       });
     }, [init]);
 
@@ -50,7 +52,7 @@ export const ScopeContextProvider = React.memo(
       storeSelectors.setState({
         selectedItemsPerPage: init.pagination ? init.pagination.itemsPerPage : init.data.length,
       });
-    }, [pagination]);
+    }, [init.pagination?.itemsPerPage, init.data.length]);
 
     React.useEffect(() => {
       storeSelectors.setState({
@@ -59,8 +61,8 @@ export const ScopeContextProvider = React.memo(
     }, [selectedItemsPerPage]);
 
     React.useEffect(() => {
-      handlePaginationData();
-    }, [currentPage, init.data, pagination, selectedItemsPerPage]);
+      handleUpdateDisplayData();
+    }, [currentPage, init.data, pagination, selectedItemsPerPage, sortOption]);
 
     return (
       <ScopeContext.Provider value={{ store: storeRef.current }}>{children}</ScopeContext.Provider>

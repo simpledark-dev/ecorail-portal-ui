@@ -1,0 +1,309 @@
+{
+  "summary": {
+    "total_recommendation_count": 8,
+    "overall_compliance": 0.40129890217219477,
+    "savings_achieved_l": 103.20408607357858,
+    "expected_savings_l": null,
+    "__typename": "Summary"
+  },
+  "movements": [
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-TRTO-GUIL",
+      "start_location_abbreviation": "TRTO",
+      "end_location_abbreviation": "GUIL",
+      "movement_distance_mi": 12.562,
+      "fuel_consumed_l": 64.17135237310089,
+      "fuel_saved_l": 15.223836702099106,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-30T22:53:06",
+      "start_time_utc": "2024-08-30T22:33:04",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-GUIL-OSHA",
+      "start_location_abbreviation": "GUIL",
+      "end_location_abbreviation": "OSHA",
+      "movement_distance_mi": 19.091,
+      "fuel_consumed_l": 70.01318906333394,
+      "fuel_saved_l": 10.925948155266056,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-30T23:11:52",
+      "start_time_utc": "2024-08-30T22:54:38",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-OSHA-PHOP",
+      "start_location_abbreviation": "OSHA",
+      "end_location_abbreviation": "PHOP",
+      "movement_distance_mi": 31.384,
+      "fuel_consumed_l": 150.26234202164497,
+      "fuel_saved_l": 6.021523630355034,
+      "avg_compliance_percent_time": 0.448216889663303,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-30T23:21:38",
+          "end_time_utc": "2024-08-30T23:23:05",
+          "start_milepost": 294.5,
+          "end_milepost": 292,
+          "possible_compliance_distance_mi": 2.244969999999995,
+          "actual_compliance_distance_mi": 0,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-OSHA-PHOP",
+          "__typename": "Compliance"
+        },
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-30T23:32:01",
+          "end_time_utc": "2024-08-30T23:38:21",
+          "start_milepost": 279,
+          "end_milepost": 271,
+          "possible_compliance_distance_mi": 7.993600000000001,
+          "actual_compliance_distance_mi": 4.589100000000002,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-OSHA-PHOP",
+          "__typename": "Compliance"
+        }
+      ],
+      "end_time_utc": "2024-08-30T23:39:48",
+      "start_time_utc": "2024-08-30T23:14:29",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-PHOP-CBRG",
+      "start_location_abbreviation": "PHOP",
+      "end_location_abbreviation": "CBRG",
+      "movement_distance_mi": 6.764000000000003,
+      "fuel_consumed_l": 36.98063422982929,
+      "fuel_saved_l": 2.059298169870708,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-30T23:48:50",
+      "start_time_utc": "2024-08-30T23:41:39",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-CBRG-TRNJ",
+      "start_location_abbreviation": "CBRG",
+      "end_location_abbreviation": "TRNJ",
+      "movement_distance_mi": 31.242000000000004,
+      "fuel_consumed_l": 149.93847919726107,
+      "fuel_saved_l": 6.4362358537389355,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-31T00:16:02",
+      "start_time_utc": "2024-08-30T23:50:52",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-TRNJ-BLVL",
+      "start_location_abbreviation": "TRNJ",
+      "end_location_abbreviation": "BLVL",
+      "movement_distance_mi": 12.181999999999988,
+      "fuel_consumed_l": 65.75071038722706,
+      "fuel_saved_l": 2.1584262925729405,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-31T00:28:41",
+      "start_time_utc": "2024-08-31T00:17:36",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-BLVL-NAPN",
+      "start_location_abbreviation": "BLVL",
+      "end_location_abbreviation": "NAPN",
+      "movement_distance_mi": 21.759000000000015,
+      "fuel_consumed_l": 113.29127643080469,
+      "fuel_saved_l": -2.5264728018046867,
+      "avg_compliance_percent_time": 0.1087140530008648,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-31T00:44:02",
+          "end_time_utc": "2024-08-31T00:46:29",
+          "start_milepost": 205,
+          "end_milepost": 201,
+          "possible_compliance_distance_mi": 3.756920000000008,
+          "actual_compliance_distance_mi": 0.40843000000000984,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-BLVL-NAPN",
+          "__typename": "Compliance"
+        }
+      ],
+      "end_time_utc": "2024-08-31T00:49:18",
+      "start_time_utc": "2024-08-31T00:30:43",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-NAPN-KGOB",
+      "start_location_abbreviation": "NAPN",
+      "end_location_abbreviation": "KGOB",
+      "movement_distance_mi": 22.85499999999999,
+      "fuel_consumed_l": 102.86793459573843,
+      "fuel_saved_l": 10.296372380261573,
+      "avg_compliance_percent_time": 0.4023588615824225,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-31T01:48:25",
+          "end_time_utc": "2024-08-31T01:50:07",
+          "start_milepost": 187.5,
+          "end_milepost": 185,
+          "possible_compliance_distance_mi": 2.491880000000009,
+          "actual_compliance_distance_mi": 1.0026300000000106,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-NAPN-KGOB",
+          "__typename": "Compliance"
+        }
+      ],
+      "end_time_utc": "2024-08-31T02:09:39",
+      "start_time_utc": "2024-08-31T01:39:12",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-KGOB-GANA",
+      "start_location_abbreviation": "KGOB",
+      "end_location_abbreviation": "GANA",
+      "movement_distance_mi": 21.78200000000001,
+      "fuel_consumed_l": 108.04890160864728,
+      "fuel_saved_l": 0.4659953583527141,
+      "avg_compliance_percent_time": 0.6772208760220539,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-31T03:31:27",
+          "end_time_utc": "2024-08-31T03:33:53",
+          "start_milepost": 161,
+          "end_milepost": 157,
+          "possible_compliance_distance_mi": 3.5284499999999923,
+          "actual_compliance_distance_mi": 2.389540000000011,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-KGOB-GANA",
+          "__typename": "Compliance"
+        }
+      ],
+      "end_time_utc": "2024-08-31T03:37:43",
+      "start_time_utc": "2024-08-31T03:15:49",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-GANA-BRKV",
+      "start_location_abbreviation": "GANA",
+      "end_location_abbreviation": "BRKV",
+      "movement_distance_mi": 28.31099999999998,
+      "fuel_consumed_l": 131.81277026530975,
+      "fuel_saved_l": 10.43703391469026,
+      "avg_compliance_percent_time": 0.273097522496597,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-31T03:45:50",
+          "end_time_utc": "2024-08-31T03:47:48",
+          "start_milepost": 147,
+          "end_milepost": 144,
+          "possible_compliance_distance_mi": 2.9537799999999947,
+          "actual_compliance_distance_mi": 0.8066699999999969,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-GANA-BRKV",
+          "__typename": "Compliance"
+        }
+      ],
+      "end_time_utc": "2024-08-31T04:05:23",
+      "start_time_utc": "2024-08-31T03:40:06",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-BRKV-SMTF",
+      "start_location_abbreviation": "BRKV",
+      "end_location_abbreviation": "SMTF",
+      "movement_distance_mi": 28.41500000000002,
+      "fuel_consumed_l": 156.29649860925733,
+      "fuel_saved_l": 0.19115068874268104,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-31T04:35:55",
+      "start_time_utc": "2024-08-31T04:07:32",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-SMTF-FALL",
+      "start_location_abbreviation": "SMTF",
+      "end_location_abbreviation": "FALL",
+      "movement_distance_mi": 30.777000000000015,
+      "fuel_consumed_l": 113.65982839961023,
+      "fuel_saved_l": 26.742511645389754,
+      "avg_compliance_percent_time": 0.4049716851840663,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-31T04:43:41",
+          "end_time_utc": "2024-08-31T04:45:00",
+          "start_milepost": 26,
+          "end_milepost": 24,
+          "possible_compliance_distance_mi": 1.9480599999999981,
+          "actual_compliance_distance_mi": 0.9578099999999949,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-SMTF-FALL",
+          "__typename": "Compliance"
+        },
+        {
+          "recommendation_id": null,
+          "recommendation_type": "IDL",
+          "start_time_utc": "2024-08-31T04:50:36",
+          "end_time_utc": "2024-08-31T04:53:02",
+          "start_milepost": 15.1,
+          "end_milepost": 11.1,
+          "possible_compliance_distance_mi": 3.852789999999999,
+          "actual_compliance_distance_mi": 1.3913699999999949,
+          "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-SMTF-FALL",
+          "__typename": "Compliance"
+        }
+      ],
+      "end_time_utc": "2024-08-31T05:00:37",
+      "start_time_utc": "2024-08-31T04:37:18",
+      "__typename": "Movement"
+    },
+    {
+      "movement_id": "mov-0258aa0a-837f-4b03-be74-7af19421f287-FALL-OTTW",
+      "start_location_abbreviation": "FALL",
+      "end_location_abbreviation": "OTTW",
+      "movement_distance_mi": 9.531999999999982,
+      "fuel_consumed_l": 35.598432620156494,
+      "fuel_saved_l": 14.77222608404351,
+      "avg_compliance_percent_time": null,
+      "avg_fuel_efficiency": null,
+      "data_anomaly": [],
+      "compliances": [],
+      "end_time_utc": "2024-08-31T05:20:10",
+      "start_time_utc": "2024-08-31T05:03:24",
+      "__typename": "Movement"
+    }
+  ],
+  "__typename": "TripDetails"
+}

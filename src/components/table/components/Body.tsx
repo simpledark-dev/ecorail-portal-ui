@@ -10,7 +10,7 @@ export const Body = () => {
   return (
     <tbody>
       {displayData.map((r, idx) => (
-        <DataRow key={idx * currentPage} record={r} />
+        <DataRow key={idx * currentPage} record={r} rowIndex={idx} />
       ))}
     </tbody>
   );

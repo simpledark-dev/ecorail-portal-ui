@@ -3,6 +3,7 @@ import { type ClassValue, clsx } from "clsx";
 import { extendTailwindMerge } from "tailwind-merge";
 import { customAlphabet } from "nanoid";
 import { StoreApi, useStore } from "zustand";
+import moment from "moment";
 
 export const twMerge = extendTailwindMerge({});
 
@@ -117,4 +118,36 @@ export const getPagination = (
   }
 
   return pages;
+};
+
+export const sortData = <T extends Record<string | number | symbol, any>>(
+  data: T[],
+  sortKey: keyof T,
+  sortOrder: "asc" | "desc",
+): T[] => {
+  return [...data].sort((a, b) => {
+    let aValue: any = a[sortKey];
+    let bValue: any = b[sortKey];
+
+    const isDate = (value: any) => moment(value, moment.ISO_8601, true).isValid();
+    const isNumber = (value: any) => !isNaN(parseFloat(value)) && isFinite(value);
+
+    if (isDate(aValue) && isDate(bValue)) {
+      aValue = moment(aValue).valueOf();
+      bValue = moment(bValue).valueOf();
+    } else if (isNumber(aValue) && isNumber(bValue)) {
+      aValue = parseFloat(aValue);
+      bValue = parseFloat(bValue);
+    }
+
+    if (aValue < bValue) return sortOrder === "asc" ? -1 : 1;
+    if (aValue > bValue) return sortOrder === "asc" ? 1 : -1;
+    return 0;
+  });
+};
+
+export const paginateData = <T>(data: T[], currentPage: number, itemsPerPage: number): T[] => {
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return data.slice(start, end);
 };

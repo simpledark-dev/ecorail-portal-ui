@@ -4,7 +4,7 @@ import { TScopeStore } from "../types";
 export const createScopeStore = <T>(
   init: Pick<
     TScopeStore<T>,
-    "columns" | "data" | "pagination" | "currentPage" | "loading" | "onPageChange"
+    "columns" | "data" | "pagination" | "currentPage" | "loading" | "sortOption" | "onPageChange"
   >,
 ) => {
   return createStore<TScopeStore<T>>(() => ({
@@ -13,6 +13,5 @@ export const createScopeStore = <T>(
     totalPages: 0,
     showSnapOptions: false,
     selectedItemsPerPage: 0,
-    sortOption: null,
   }));
 };

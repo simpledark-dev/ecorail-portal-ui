@@ -55,7 +55,6 @@ Default.args = {
     {
       key: "start-end" as const,
       label: "Start → End",
-      shortable: true,
       customHeadCell: {
         attributes: {
           className: "whitespace-nowrap",
@@ -74,6 +73,7 @@ Default.args = {
     {
       key: "trip_duration_secs",
       label: "Duration",
+      shortable: true,
     },
     {
       key: "loco_id",
@@ -279,6 +279,10 @@ WithTruncate.args = {
     ],
   },
   currentPage: 2,
+  sortOption: {
+    key: "start_date_utc",
+    direction: "desc",
+  },
 };
 
 export const InnerTable: StoryFn = () => {

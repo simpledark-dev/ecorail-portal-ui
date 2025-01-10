@@ -13,6 +13,7 @@ export type TScopeStore<T> = {
   showSnapOptions: boolean;
   selectedItemsPerPage: number;
   sortOption: { key: keyof T; direction: "asc" | "desc" } | null;
+  loading: boolean;
   onPageChange: (page: number) => void;
 };
 

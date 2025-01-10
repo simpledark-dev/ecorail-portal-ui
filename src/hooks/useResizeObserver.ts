@@ -9,17 +9,19 @@ export const useResizeObserver = <T extends HTMLElement>() => {
 
     if (!element) return;
 
-    const updateRect = () => setRect(element.getBoundingClientRect());
-    const resizeObserver = new ResizeObserver(() => {
+    try {
+      const updateRect = () => setRect(element.getBoundingClientRect());
+      const resizeObserver = new ResizeObserver(() => {
+        updateRect();
+      });
+      resizeObserver.observe(element);
+
       updateRect();
-    });
-    resizeObserver.observe(element);
 
-    updateRect();
-
-    return () => {
-      resizeObserver.disconnect();
-    };
+      return () => {
+        resizeObserver.disconnect();
+      };
+    } catch (error) {}
   }, []);
 
   return { ref, rect };

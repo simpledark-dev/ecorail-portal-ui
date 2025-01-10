@@ -446,3 +446,15 @@ export const InnerTable: StoryFn = () => {
     </div>
   );
 };
+
+export const WithLoading = Template.bind({});
+WithLoading.args = {
+  ...Default.args,
+  loading: true,
+};
+
+export const WithEmptyData = Template.bind({});
+WithEmptyData.args = {
+  ...Default.args,
+  data: [],
+};

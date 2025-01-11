@@ -41,7 +41,7 @@ export const NoticeInstance = (props: NoticeInstanceProps) => {
     >
       <div
         className={cn(
-          "min-w-[320px] max-w-[480px] overflow-hidden rounded-[8px] border border-gray-400 bg-white drop-shadow-sm transition-all duration-150 sm:min-w-[380px]",
+          "min-w-[320px] max-w-[480px] overflow-hidden rounded-[8px] border border-gray-400 bg-white drop-shadow-lg transition-all duration-150 sm:min-w-[380px]",
         )}
       >
         {/* Notice Heading */}

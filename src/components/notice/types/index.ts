@@ -6,6 +6,7 @@ export type TScopeStore = {
 
 export type TNoticeInstance = {
   id: string;
+  key?: string;
   title: string;
   closeable?: boolean;
   collapsible?: boolean;

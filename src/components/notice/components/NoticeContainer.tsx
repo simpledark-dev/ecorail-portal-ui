@@ -3,7 +3,6 @@ import { useResizeObserver } from "@/hooks/useResizeObserver";
 import { useScopeContext } from "../contexts/scope.context";
 import { css } from "@emotion/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePreventScroll } from "@/hooks/usePreventScroll";
 import { cn } from "@/utils/common.util";
 import { NoticeInstance } from "./NoticeInstance";
 
@@ -12,8 +11,6 @@ export const NoticeContainer = () => {
   const instances = scopeContext.store.use.instances();
 
   const { ref: elContainerRef, rect: elContainerRect } = useResizeObserver<HTMLDivElement>();
-
-  usePreventScroll(instances.length > 0);
 
   return (
     <div
@@ -32,7 +29,7 @@ export const NoticeContainer = () => {
             className="absolute"
           >
             <ul
-              className="fixed bottom-[64px] left-0 right-0 m-0 mx-auto h-auto !w-full space-y-2 p-0 px-[32px] lg:left-[64px] lg:mx-0 lg:w-fit lg:px-0"
+              className="fixed bottom-[64px] left-0 right-0 m-0 mx-auto h-auto !w-full space-y-2 p-0 px-[32px] lg:left-[64px] lg:mx-0 lg:!w-fit lg:px-0"
               css={css`
                 width: ${elContainerRect ? elContainerRect.width : 0}px;
               `}

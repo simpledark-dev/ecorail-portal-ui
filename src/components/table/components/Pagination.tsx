@@ -60,15 +60,15 @@ export const Pagination = () => {
       className="flex select-none flex-row flex-nowrap items-center justify-center gap-5 rounded-[12px] border border-gray-400 bg-white px-[12px] py-[8px] drop-shadow-sm"
     >
       <ul
-        className="flex items-center justify-start gap-2"
+        className="flex items-center justify-start gap-1"
         css={css`
           li {
             button {
               display: flex;
               align-items: center;
               justify-content: center;
-              min-width: 28px;
-              min-height: 28px;
+              min-width: 32px;
+              min-height: 32px;
             }
           }
         `}

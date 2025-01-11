@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { useScopeContext } from "../contexts/scope.context";
 import { DataRow } from "./DataRow";
 import { EmptyDataRow } from "./EmptyDataRow";
@@ -11,9 +13,17 @@ export const Body = () => {
   const currentPage = scopeStore.use.currentPage();
   const loading = scopeStore.use.loading();
 
+  const tdResetCss = css`
+    td {
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+  `;
+
   if (loading)
     return (
-      <tbody>
+      <tbody css={tdResetCss}>
         <LoadingRow />
       </tbody>
     );
@@ -26,7 +36,7 @@ export const Body = () => {
     );
 
   return (
-    <tbody>
+    <tbody css={tdResetCss}>
       {displayData.map((r, idx) => (
         <DataRow key={idx * currentPage} record={r} rowIndex={idx} />
       ))}

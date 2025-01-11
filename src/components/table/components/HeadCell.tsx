@@ -15,18 +15,47 @@ export const HeadCell = <T extends any>(props: HeadCellProps<T>) => {
   const currentSort = store.use.sortOption();
 
   const isCurrentSorting = React.useMemo(() => {
-    return currentSort?.key === column.key;
-  }, [currentSort, column.key]);
-
-  const toggleSortOrder = () => {
-    if (currentSort?.key === column.key && currentSort.direction === "desc") {
-      store.setState({ sortOption: null });
-      return;
+    if (column.key) {
+      return currentSort?.key === column.key;
     }
 
-    const newOrder =
-      currentSort?.key === column.key && currentSort.direction === "asc" ? "desc" : "asc";
-    store.setState({ sortOption: { key: column.key, direction: newOrder } });
+    if (column.virtualKey) {
+      return currentSort?.key === column.virtualKey.key;
+    }
+
+    return false;
+  }, [currentSort, column.key, column.virtualKey]);
+
+  const toggleSortOrder = () => {
+    if (column.key) {
+      if (currentSort?.key === column.key && currentSort.direction === "desc") {
+        store.setState({ sortOption: null });
+        return;
+      }
+
+      const newOrder =
+        currentSort?.key === column.key && currentSort.direction === "asc" ? "desc" : "asc";
+      store.setState({ sortOption: { key: column.key, direction: newOrder } });
+    }
+
+    if (column.virtualKey) {
+      if (currentSort?.key === column.virtualKey.key && currentSort.direction === "desc") {
+        store.setState({ sortOption: null });
+        return;
+      }
+
+      const newOrder =
+        currentSort?.key === column.virtualKey.key && currentSort.direction === "asc"
+          ? "desc"
+          : "asc";
+      store.setState({
+        sortOption: {
+          key: column.virtualKey.key,
+          direction: newOrder,
+          compute: column.virtualKey.compute,
+        },
+      });
+    }
   };
 
   const defaultRenderCell = () => {

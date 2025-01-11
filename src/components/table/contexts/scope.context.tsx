@@ -32,7 +32,12 @@ export const ScopeContextProvider = React.memo(
       let updatedData = init.data;
 
       if (sortOption) {
-        updatedData = sortData(updatedData, sortOption.key, sortOption.direction);
+        updatedData = sortData(
+          updatedData,
+          sortOption.key,
+          sortOption.direction,
+          sortOption.compute,
+        );
       }
 
       if (pagination) {
@@ -61,7 +66,7 @@ export const ScopeContextProvider = React.memo(
       storeSelectors.setState({
         totalPages: pagination ? Math.round(data.length / selectedItemsPerPage) : 1,
       });
-    }, [selectedItemsPerPage]);
+    }, [selectedItemsPerPage, data.length]);
 
     React.useEffect(() => {
       handleUpdateDisplayData();

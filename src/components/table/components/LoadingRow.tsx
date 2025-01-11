@@ -12,7 +12,7 @@ export const LoadingRow = () => {
     <tr>
       <td colSpan={regularColumns.length}>
         <div className="relative my-[32px] flex items-center justify-center px-[20px]">
-          <Spinner size={48} />
+          <Spinner size={64} />
         </div>
       </td>
     </tr>

@@ -29,7 +29,7 @@ export const DataCell = <T extends any>(props: DataCellProps<T>) => {
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
   const defaultRenderCell = () => {
-    let content = (record as any)[column.key];
+    let content = (record as any)[column?.key] || column.virtualKey?.compute(record);
     const truncate = column.truncate;
 
     if (column.format) {

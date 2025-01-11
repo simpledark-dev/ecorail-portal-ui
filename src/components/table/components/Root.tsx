@@ -40,8 +40,8 @@ const Entry = () => {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-[12px] border border-gray-400 bg-white px-5 py-8 drop-shadow-sm">
-        <div className="overflow-auto">
+      <div className="grid grid-cols-12 rounded-[12px] border border-gray-400 bg-white px-[20px] py-[32px] drop-shadow-sm">
+        <div className="col-span-12 overflow-auto">
           <table
             cellSpacing={0}
             cellPadding={0}
@@ -54,7 +54,7 @@ const Entry = () => {
       </div>
 
       {pagination && (
-        <div className="float-right">
+        <div className="flex items-center justify-end">
           <Pagination />
         </div>
       )}

@@ -45,6 +45,9 @@ export const Default: StoryFn = () => {
       <Icons.KeyboardArrowRight className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.KeyboardDoubleArrowLeft className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.KeyboardDoubleArrowRight className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.FixedSuccess className="h-16 w-16 shrink-0" />
+      <Icons.FixedWarning className="h-16 w-16 shrink-0" />
+      <Icons.FixedError className="h-16 w-16 shrink-0" />
     </div>
   );
 };

@@ -226,21 +226,18 @@ WithTruncate.args = {
       },
     },
     {
-      key: "start-end" as const,
+      virtualKey: {
+        key: "start-end",
+        compute: (item) => `${item.start_location} → ${item.end_location}`,
+      },
       label: "Start → End",
+      shortable: true,
       customHeadCell: {
         attributes: {
           className: "whitespace-nowrap",
         },
       },
       customDataCell: {
-        render(item) {
-          return (
-            <>
-              {item.start_location} → {item.end_location}
-            </>
-          );
-        },
         attributes: {
           className: "whitespace-nowrap",
         },

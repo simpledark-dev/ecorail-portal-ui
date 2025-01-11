@@ -124,13 +124,18 @@ export const sortData = <T extends Record<string | number | symbol, any>>(
   data: T[],
   sortKey: keyof T,
   sortOrder: "asc" | "desc",
+  compute?: (item: T) => string | number,
 ): T[] => {
   return [...data].sort((a, b) => {
-    let aValue: any = a[sortKey];
-    let bValue: any = b[sortKey];
+    let aValue: any = compute ? compute(a) : a[sortKey];
+    let bValue: any = compute ? compute(b) : b[sortKey];
 
     const isDate = (value: any) => moment(value, moment.ISO_8601, true).isValid();
     const isNumber = (value: any) => !isNaN(parseFloat(value)) && isFinite(value);
+
+    if (aValue == null && bValue == null) return 0;
+    if (aValue == null) return sortOrder === "asc" ? -1 : 1;
+    if (bValue == null) return sortOrder === "asc" ? 1 : -1;
 
     if (isDate(aValue) && isDate(bValue)) {
       aValue = moment(aValue).valueOf();

@@ -5,8 +5,8 @@ import { nanoid } from "@/utils/common.util";
 export const createScopeStore = () => {
   return createStore<TScopeStore>((set, _) => ({
     instances: [],
-    create: (dialog) => {
-      const newInstance = { id: nanoid("alpha"), ...dialog };
+    create: (notice) => {
+      const newInstance = { id: nanoid("alpha"), ...notice };
       set((state) => ({
         instances: [...state.instances, newInstance],
       }));

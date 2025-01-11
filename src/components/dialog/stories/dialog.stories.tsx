@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DialogProvider, useDialog } from "..";
+import { DialogContainer, DialogProvider, useDialog } from "..";
 import { Icons } from "@/components/icons";
 
 export default {
@@ -8,6 +8,7 @@ export default {
   decorators: [
     (Story: any) => (
       <DialogProvider>
+        <DialogContainer />
         <Story />
       </DialogProvider>
     ),

@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useScopeContext } from "../contexts/scope.context";
-import { TDialogInstance } from "../types";
+import { TNoticeInstance } from "../types";
 
-export const useDialog = () => {
+export const useNotice = () => {
   const { store } = useScopeContext();
 
-  const create = (dialog: Omit<TDialogInstance, "id">) => {
-    return store.getState().create(dialog);
+  const create = (notice: Omit<TNoticeInstance, "id">) => {
+    return store.getState().create(notice);
   };
 
   const remove = (id: string) => {

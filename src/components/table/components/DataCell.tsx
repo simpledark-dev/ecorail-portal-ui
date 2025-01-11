@@ -49,7 +49,7 @@ export const DataCell = <T extends any>(props: DataCellProps<T>) => {
             ref={refs.setFloating}
             style={floatingStyles}
             {...getFloatingProps()}
-            className="z-50 rounded border border-gray-300 bg-white p-2 shadow-lg"
+            className="z-50 rounded border-[1px] border-gray-300 bg-white p-2 shadow-lg"
           >
             {content}
           </div>

@@ -1,6 +1,6 @@
 export type TScopeStore = {
   instances: TDialogInstance[];
-  create: (dialog: Omit<TDialogInstance, "id">) => void;
+  create: (dialog: Omit<TDialogInstance, "id">) => TDialogInstance;
   remove: (id: string) => void;
 };
 

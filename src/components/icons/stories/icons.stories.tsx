@@ -13,6 +13,11 @@ export const Default: StoryFn = () => {
       <Icons.Info className="h-16 w-16 shrink-0 fill-red-500" />
       <Icons.Info className="h-16 w-16 shrink-0 fill-orange-500" />
 
+      <Icons.FixedSuccess className="h-16 w-16 shrink-0" />
+      <Icons.FixedCircleSuccess className="h-16 w-16 shrink-0" />
+      <Icons.FixedWarning className="h-16 w-16 shrink-0" />
+      <Icons.FixedError className="h-16 w-16 shrink-0" />
+
       <Icons.Plus className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Minus className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Focus className="h-16 w-16 shrink-0 fill-navy-500" />
@@ -45,9 +50,6 @@ export const Default: StoryFn = () => {
       <Icons.KeyboardArrowRight className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.KeyboardDoubleArrowLeft className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.KeyboardDoubleArrowRight className="h-16 w-16 shrink-0 fill-navy-500" />
-      <Icons.FixedSuccess className="h-16 w-16 shrink-0" />
-      <Icons.FixedWarning className="h-16 w-16 shrink-0" />
-      <Icons.FixedError className="h-16 w-16 shrink-0" />
       <Icons.Setting className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.PermContact className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.CalendarClock className="h-16 w-16 shrink-0 fill-navy-500" />

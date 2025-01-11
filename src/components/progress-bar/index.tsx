@@ -7,7 +7,7 @@ type TScopeBreakpoint = {
   condition: (value: number) => boolean;
 };
 
-interface ProgressBarProps extends React.ComponentPropsWithoutRef<"div"> {
+export interface ProgressBarProps extends React.ComponentPropsWithoutRef<"div"> {
   progress?: number;
   height?: number;
   bgColor?: string;

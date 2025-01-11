@@ -1,11 +1,11 @@
 import React from "react";
 import { ScopeContextProvider } from "../contexts/scope.context";
 
-export interface DialogProviderProps {
+export interface NoticeProviderProps {
   children: React.ReactNode;
 }
 
-export const DialogProvider = (props: DialogProviderProps) => {
+export const NoticeProvider = (props: NoticeProviderProps) => {
   const { children } = props;
 
   return <ScopeContextProvider>{children}</ScopeContextProvider>;

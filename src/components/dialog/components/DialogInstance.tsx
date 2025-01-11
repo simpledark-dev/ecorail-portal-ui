@@ -15,7 +15,7 @@ export const DialogInstance = (props: DialogInstanceProps) => {
       aria-labelledby={`dialog-title-${instance.id}`}
       aria-describedby={`dialog-body-${instance.id}`}
       aria-modal="true"
-      className="z-2 absolute left-[50%] top-[40%] mx-auto flex h-auto w-full items-center justify-center px-[32px]"
+      className="z-2 absolute left-[50%] top-[40%] mx-auto flex h-auto w-full items-center justify-center px-[24px]"
       css={css`
         transform: translateX(-50%) translateY(-50%);
       `}

@@ -24,7 +24,7 @@ export const DataCellFullRow = <T extends any>(props: DataCellFullRowProps<T>) =
     >
       <div
         className={cn(
-          "border border-t-0 border-transparent text-left align-middle text-sm font-normal text-navy-700",
+          "border border-t-0 border-transparent text-left align-middle text-sm font-normal text-navy-600",
           {
             "border-blue-200": isFocused,
           },

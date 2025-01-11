@@ -122,7 +122,7 @@ export const getPagination = (
 
 export const sortData = <T extends Record<string | number | symbol, any>>(
   data: T[],
-  sortKey: keyof T,
+  sortKey: keyof T | string,
   sortOrder: "asc" | "desc",
   compute?: (item: T) => string | number,
 ): T[] => {

@@ -1,5 +1,5 @@
 import { cn } from "@/utils/common.util";
-import { TScopeColumnConfigItem } from "../types";
+import { TScopeColumnConfigItem, TScopeSortOption } from "../types";
 import { Icons } from "@/components/icons";
 import { useScopeContext } from "../contexts/scope.context";
 import React from "react";
@@ -13,6 +13,7 @@ export const HeadCell = <T extends any>(props: HeadCellProps<T>) => {
 
   const { store } = useScopeContext();
   const currentSort = store.use.sortOption();
+  const onSortOptionChange = store.use.onSortOptionChange();
 
   const isCurrentSorting = React.useMemo(() => {
     if (column.key) {
@@ -35,7 +36,12 @@ export const HeadCell = <T extends any>(props: HeadCellProps<T>) => {
 
       const newOrder =
         currentSort?.key === column.key && currentSort.direction === "asc" ? "desc" : "asc";
-      store.setState({ sortOption: { key: column.key, direction: newOrder } });
+      const newSortOption: TScopeSortOption<T> = {
+        key: column.key,
+        direction: newOrder,
+      };
+      store.setState({ sortOption: newSortOption });
+      onSortOptionChange(newSortOption);
     }
 
     if (column.virtualKey) {
@@ -48,18 +54,18 @@ export const HeadCell = <T extends any>(props: HeadCellProps<T>) => {
         currentSort?.key === column.virtualKey.key && currentSort.direction === "asc"
           ? "desc"
           : "asc";
-      store.setState({
-        sortOption: {
-          key: column.virtualKey.key,
-          direction: newOrder,
-          compute: column.virtualKey.compute,
-        },
-      });
+      const newSortOption: TScopeSortOption<T> = {
+        key: column.virtualKey.key,
+        direction: newOrder,
+        compute: column.virtualKey.compute,
+      };
+      store.setState({ sortOption: newSortOption });
+      onSortOptionChange(newSortOption);
     }
   };
 
   const defaultRenderCell = () => {
-    return <p>{column.label}</p>;
+    return <p className="grow">{column.label}</p>;
   };
 
   const renderSorting = () => {
@@ -82,7 +88,7 @@ export const HeadCell = <T extends any>(props: HeadCellProps<T>) => {
     <th
       {...(column.customHeadCell?.attributes as any)}
       className={cn(
-        "group/cell box-border h-[1px] min-h-[1px] overflow-hidden align-middle",
+        "group/cell box-border h-[1px] min-h-[1px] overflow-hidden text-left align-middle",
         column.customHeadCell?.attributes?.className,
         {
           "cursor-pointer": column.shortable,
@@ -93,7 +99,7 @@ export const HeadCell = <T extends any>(props: HeadCellProps<T>) => {
       <div
         className={cn(
           "flex h-full items-center justify-start border-y border-gray-400 bg-gray-50 p-3 transition-colors duration-150",
-          "text-left align-middle text-sm font-medium text-neutral-400",
+          "align-middle text-sm font-medium text-inherit text-neutral-400",
           { "group-hover/cell:bg-gray-100": column.shortable },
           { "text-blue-600": isCurrentSorting },
         )}

@@ -12,13 +12,10 @@ export type TScopeStore<T> = {
   totalPages: number;
   showSnapOptions: boolean;
   selectedItemsPerPage: number;
-  sortOption: {
-    key: keyof T;
-    direction: "asc" | "desc";
-    compute?: (item: T) => string | number;
-  } | null;
+  sortOption: TScopeSortOption<T> | null;
   loading: boolean;
   onPageChange: (page: number) => void;
+  onSortOptionChange: (option: TScopeSortOption<T>) => void;
 };
 
 export type TScopeColumnConfigItem<T> = {
@@ -33,7 +30,7 @@ export type TScopeColumnConfigItem<T> = {
     maxWidth?: number;
     showTooltip?: boolean;
   };
-  format?: (value: any) => string | React.ReactElement;
+  format?: (value: any) => string | number | React.ReactElement;
   fullRow?: boolean;
   show?: boolean;
   focus?: (item: T, index: number) => boolean;
@@ -52,4 +49,10 @@ export type TScopeSnapOptionItem = {
   label: string;
   itemsPerPage: number;
   action?: () => void;
+};
+
+export type TScopeSortOption<T> = {
+  key: keyof T | string;
+  direction: "asc" | "desc";
+  compute?: (item: T) => string | number;
 };

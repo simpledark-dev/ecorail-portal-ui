@@ -11,7 +11,14 @@ const ScopeContext = React.createContext<{ store: StoreApi<TScopeStore<any>> } |
 interface ScopeContextProviderProps<T> {
   init: Pick<
     TScopeStore<T>,
-    "columns" | "data" | "pagination" | "currentPage" | "loading" | "sortOption" | "onPageChange"
+    | "columns"
+    | "data"
+    | "pagination"
+    | "currentPage"
+    | "loading"
+    | "sortOption"
+    | "onPageChange"
+    | "onSortOptionChange"
   >;
   children: React.ReactNode;
 }

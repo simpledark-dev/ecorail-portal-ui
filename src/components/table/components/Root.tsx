@@ -12,6 +12,7 @@ export interface RootProps<T> {
   loading?: TScopeStore<T>["loading"];
   sortOption?: TScopeStore<T>["sortOption"];
   onPageChange?: TScopeStore<T>["onPageChange"];
+  onSortOptionChange?: TScopeStore<T>["onSortOptionChange"];
 }
 
 export const Root = <T extends any>(props: RootProps<T>) => {
@@ -21,12 +22,21 @@ export const Root = <T extends any>(props: RootProps<T>) => {
     loading = false,
     sortOption = null,
     onPageChange = () => {},
+    onSortOptionChange = () => {},
     ...rest
   } = props;
 
   return (
     <ScopeContextProvider
-      init={{ pagination, currentPage, onPageChange, loading, sortOption, ...(rest as any) }}
+      init={{
+        pagination,
+        currentPage,
+        onPageChange,
+        loading,
+        sortOption,
+        onSortOptionChange,
+        ...(rest as any),
+      }}
     >
       <Entry />
     </ScopeContextProvider>

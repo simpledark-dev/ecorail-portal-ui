@@ -18,7 +18,7 @@ export const Spinner = React.memo((props: SpinnerProps) => {
   const fxRotateId = React.useMemo(() => `fx-rotate-${instanceId}`, [instanceId]);
 
   return (
-    <div className={cn("d-flex justify-content-center", className)}>
+    <div className={cn("justify-content-center flex select-none", className)}>
       <div
         css={css`
           width: ${size}px;

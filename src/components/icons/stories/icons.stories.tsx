@@ -48,6 +48,11 @@ export const Default: StoryFn = () => {
       <Icons.FixedSuccess className="h-16 w-16 shrink-0" />
       <Icons.FixedWarning className="h-16 w-16 shrink-0" />
       <Icons.FixedError className="h-16 w-16 shrink-0" />
+      <Icons.Setting className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.PermContact className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.CalendarClock className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Map className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.ArrowDropdown className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

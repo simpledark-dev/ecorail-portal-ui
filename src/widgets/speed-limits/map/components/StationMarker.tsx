@@ -70,17 +70,24 @@ export const StationMarker = React.memo((props: StationMarkerProps) => {
         eventHandlers={markerEventHandler}
       >
         <motion.div
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.5, opacity: 0 }}
-          ref={markerRef}
-          transition={{ type: "spring" }}
-          className="relative h-full w-full"
+          initial={{ opacity: 0 }}
+          animate={displayMode === 1 ? { opacity: 1, y: 0 } : { opacity: 1, y: -40 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
         >
-          {/* Badge */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <StationBadge station={station} mode={displayMode} />
-          </div>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.5, opacity: 0 }}
+            ref={markerRef}
+            transition={{ type: "spring" }}
+            className="relative h-full w-full"
+          >
+            {/* Badge */}
+            <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <StationBadge station={station} mode={displayMode} />
+            </motion.div>
+          </motion.div>
         </motion.div>
       </JSXMarker>
     </>
@@ -100,7 +107,7 @@ const StationBadge = (props: StationBadgeProps) => {
     <div className="relative drop-shadow-sm">
       <motion.div
         initial={{ height: 0 }}
-        animate={mode === 1 ? { height: 0, y: 0 } : { height: 48, y: -40 }}
+        animate={mode === 1 ? { height: 0, y: 0 } : { height: 48 }}
         exit={{ height: 0 }}
         transition={{ duration: 0.2 }}
         className="pointer-events-none absolute left-1/2 top-2 z-[1] w-[3px] -translate-x-1/2 select-none rounded-full bg-gradient-to-b from-gray-500 to-transparent"
@@ -108,7 +115,7 @@ const StationBadge = (props: StationBadgeProps) => {
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={mode === 1 ? { opacity: 1, y: 0 } : { opacity: 1, y: -40 }}
+        animate={mode === 1 ? { opacity: 1, y: 0 } : { opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
         className="relative z-[2] flex items-center justify-center gap-1 rounded-full border border-gray-400 bg-white p-1"

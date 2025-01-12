@@ -80,14 +80,14 @@ export const TSOLine = React.memo((props: TSOLineProps) => {
       <Polyline
         positions={reducedDensityCoordinates.map((coord) => [coord.gps.lat, coord.gps.lng])}
         weight={5}
-        color="#E26F03"
+        color="#FFA33A"
         eventHandlers={markerEventHandlers}
       />
       {/* Support Line */}
       <Polyline
         positions={reducedDensityCoordinates.map((coord) => [coord.gps.lat, coord.gps.lng])}
         weight={20}
-        color="#E26F03"
+        color="#FFA33A"
         opacity={0}
         eventHandlers={markerEventHandlers}
       />
@@ -113,7 +113,7 @@ export const TSOLine = React.memo((props: TSOLineProps) => {
           {/* Circle */}
           <div
             className={cn(
-              "relative z-[5] flex h-full w-full items-center justify-center rounded-full border-[3px] border-orange-500 bg-white drop-shadow-sm",
+              "relative z-[5] flex h-full w-full items-center justify-center rounded-full border-[3px] border-[#FFA33A] bg-white drop-shadow-sm",
             )}
           >
             <p className="text-[10px] font-semibold text-navy-700">{tso.startMile.toFixed(1)}</p>
@@ -142,7 +142,7 @@ export const TSOLine = React.memo((props: TSOLineProps) => {
           {/* Circle */}
           <div
             className={cn(
-              "relative z-[5] flex h-full w-full items-center justify-center rounded-full border-[3px] border-orange-500 bg-white drop-shadow-sm",
+              "relative z-[5] flex h-full w-full items-center justify-center rounded-full border-[3px] border-[#FFA33A] bg-white drop-shadow-sm",
             )}
           >
             <p className="text-[10px] font-semibold text-navy-700">{tso.endMile.toFixed(1)}</p>
@@ -237,9 +237,9 @@ const TSOTooltip = (props: TSOTooltipProps) => {
             >
               {/* Header */}
               <div className="flex items-center justify-start gap-3 whitespace-nowrap p-3">
-                <div className="flex aspect-square h-[52px] w-[52px] flex-col items-center justify-center rounded-[8px] border border-navy-600 p-2">
+                <div className="outline-3 flex aspect-square h-[52px] w-[52px] flex-col items-center justify-center rounded-[8px] border-2 border-navy-700 bg-[#ffa33a] p-2 outline outline-[#ffa33a]">
                   <p className="text-center text-xs font-semibold uppercase text-navy-700">Limit</p>
-                  <p className="text-center text-xs font-semibold uppercase text-navy-700">
+                  <p className="text-center text-base font-bold uppercase text-navy-700">
                     {tso.speedLimitMph}
                   </p>
                 </div>

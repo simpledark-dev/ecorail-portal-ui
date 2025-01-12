@@ -6,18 +6,24 @@ export const createScopeStore = () => {
   return createStore<TScopeStore>((set, get) => ({
     instances: [],
     create: (notice) => {
+      const newInstance = { id: nanoid("alpha"), ...notice };
+
       if (notice.key) {
         const existingInstance = get().instances.find((instance) => instance.key === notice.key);
         if (!existingInstance) {
-          const newInstance = { id: nanoid("alpha"), ...notice };
           set((state) => ({
             instances: [...state.instances, newInstance],
           }));
           return newInstance;
         }
         return existingInstance;
+      } else {
+        set((state) => ({
+          instances: [...state.instances, newInstance],
+        }));
+
+        return newInstance;
       }
-      return { id: nanoid("alpha"), ...notice };
     },
     remove: (id) =>
       set((state) => ({

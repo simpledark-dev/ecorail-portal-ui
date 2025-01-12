@@ -11,7 +11,7 @@ const ScopeContext = React.createContext<
 >(undefined);
 
 interface ScopeContextProviderProps {
-  init: Pick<TScopeStore, "trackCoordinates" | "stations" | "tsos">;
+  init: Pick<TScopeStore, "trackCoordinates" | "stations" | "tsos" | "loading">;
   children: React.ReactNode;
 }
 

@@ -8,6 +8,7 @@ export type TScopeStore = {
   showLiveSignal: boolean;
   showRecentlySignal: boolean;
   showLostSignal: boolean;
+  loading: boolean;
 };
 
 export type TScopeLocoData = {

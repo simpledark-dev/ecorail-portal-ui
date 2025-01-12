@@ -73,13 +73,13 @@ export const StationMarker = React.memo((props: StationMarkerProps) => {
           initial={{ opacity: 0 }}
           animate={displayMode === 1 ? { opacity: 1, y: 0 } : { opacity: 1, y: -40 }}
           exit={{ opacity: 0 }}
+          ref={markerRef}
           transition={{ duration: 0.2 }}
         >
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.5, opacity: 0 }}
-            ref={markerRef}
             transition={{ type: "spring" }}
             className="relative h-full w-full"
           >

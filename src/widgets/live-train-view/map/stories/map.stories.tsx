@@ -24,3 +24,9 @@ export const Cluster = Template.bind({});
 Cluster.args = {
   locos: MOCK_LOCOS_2,
 };
+
+export const WithLoading = Template.bind({});
+WithLoading.args = {
+  locos: MOCK_LOCOS_1,
+  loading: true,
+};

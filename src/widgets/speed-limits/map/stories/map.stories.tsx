@@ -49,3 +49,9 @@ Default.args = {
     updatedUtc: new Date(item.updated_at_utc),
   })),
 };
+
+export const WithLoading = Template.bind({});
+WithLoading.args = {
+  ...Default.args,
+  loading: true,
+};

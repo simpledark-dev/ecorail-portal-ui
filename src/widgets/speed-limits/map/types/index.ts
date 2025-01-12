@@ -6,6 +6,7 @@ export type TScopeStore = {
   showMilepostsLayer: boolean;
   showStationsLayer: boolean;
   showTSOsLayer: boolean;
+  loading: boolean;
 };
 
 export type TScopeTrackCoordinateData = {

@@ -237,12 +237,17 @@ const TSOTooltip = (props: TSOTooltipProps) => {
             >
               {/* Header */}
               <div className="flex items-center justify-start gap-3 whitespace-nowrap p-3">
-                <div className="outline-3 flex aspect-square h-[52px] w-[52px] flex-col items-center justify-center rounded-[8px] border-2 border-navy-700 bg-[#ffa33a] p-2 outline outline-[#ffa33a]">
-                  <p className="text-center text-xs font-semibold uppercase text-navy-700">Limit</p>
-                  <p className="text-center text-base font-bold uppercase text-navy-700">
-                    {tso.speedLimitMph}
-                  </p>
+                <div className="rounded-[8px] bg-[#ffa33a] p-[2px]">
+                  <div className="flex aspect-square h-[52px] w-[52px] flex-col items-center justify-center rounded-[8px] border-[1px] border-navy-700 bg-[#ffa33a] p-2">
+                    <p className="text-center text-xs font-semibold uppercase text-navy-700">
+                      Limit
+                    </p>
+                    <p className="text-center text-base font-bold uppercase text-navy-700">
+                      {tso.speedLimitMph}
+                    </p>
+                  </div>
                 </div>
+
                 <div>
                   <p className="mb-1 text-sm font-semibold text-navy-600">TSO</p>
                   <p className="text-xs text-neutral-400">

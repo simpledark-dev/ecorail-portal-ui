@@ -8,3 +8,15 @@ export default {
 export const Default: StoryFn = () => {
   return <ToggleButton />;
 };
+
+export const Small: StoryFn = () => {
+  return <ToggleButton size="sm" />;
+};
+
+export const Medium: StoryFn = () => {
+  return <ToggleButton size="md" />;
+};
+
+export const Disabled: StoryFn = () => {
+  return <ToggleButton disabled />;
+};

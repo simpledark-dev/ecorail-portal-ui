@@ -55,6 +55,8 @@ export const Default: StoryFn = () => {
       <Icons.CalendarClock className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.Map className="h-16 w-16 shrink-0 fill-navy-500" />
       <Icons.ArrowDropdown className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.Check className="h-16 w-16 shrink-0 fill-navy-500" />
+      <Icons.PageInfo className="h-16 w-16 shrink-0 fill-navy-500" />
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import { Icons } from "@/components/icons";
+import _ from "lodash";
 import { ScopeContextProvider, useScopeContext } from "../contexts/scope.context";
 import { TScopeStore } from "../types";
-import { Options } from "./Options";
 import React from "react";
+import { cn, nanoid } from "@/utils/common.util";
 import {
   useFloating,
   offset,
@@ -13,25 +13,25 @@ import {
   useClick,
   useInteractions,
 } from "@floating-ui/react";
+import { Icons } from "@/components/icons";
 import { AnimatePresence, motion } from "framer-motion";
-import { cn, nanoid } from "@/utils/common.util";
-import _ from "lodash";
+import { Options } from "./Options";
 
 export interface RootProps {
   title: TScopeStore["title"];
   disable?: TScopeStore["disable"];
   icon: TScopeStore["icon"];
   options: TScopeStore["options"];
-  selectedValue?: TScopeStore["selectedValue"];
-  onSelectedValueChange?: TScopeStore["onSelectedValueChange"];
+  selectedValues?: TScopeStore["selectedValues"];
+  onSelectedValuesChange?: TScopeStore["onSelectedValuesChange"];
 }
 
 export const Root = (props: RootProps) => {
   const {
     options,
     disable = false,
-    selectedValue = null,
-    onSelectedValueChange = () => {},
+    selectedValues = [],
+    onSelectedValuesChange = () => {},
     ...rest
   } = props;
 
@@ -40,8 +40,8 @@ export const Root = (props: RootProps) => {
       init={{
         options,
         disable,
-        selectedValue: selectedValue || options.length > 0 ? options[0].value : null,
-        onSelectedValueChange,
+        selectedValues,
+        onSelectedValuesChange,
         ...rest,
       }}
     >
@@ -58,13 +58,13 @@ const Entry = () => {
   const disable = scopeStore.use.disable();
   const showMenu = scopeStore.use.showMenu();
   const options = scopeStore.use.options();
-  const selectedValue = scopeStore.use.selectedValue();
-
-  const selectedOption = React.useMemo(() => {
-    return options.find((v) => {
-      return _.isEqual(v.value, selectedValue);
+  const selectedValues = scopeStore.use.selectedValues();
+  const onSelectedValuesChange = scopeStore.use.onSelectedValuesChange();
+  const selectedOptions = React.useMemo(() => {
+    return options.filter((v) => {
+      return selectedValues.some((selectedValue) => _.isEqual(selectedValue, v.value));
     });
-  }, [options, selectedValue]);
+  }, [options, selectedValues]);
 
   const instanceId = React.useRef(nanoid("alpha"));
 
@@ -88,6 +88,11 @@ const Entry = () => {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss]);
 
+  const handleClear = () => {
+    scopeStore.setState({ selectedValues: [] });
+    onSelectedValuesChange([]);
+  };
+
   return (
     <div className="relative z-[5]">
       <div>
@@ -103,6 +108,7 @@ const Entry = () => {
             "w-fit min-w-[150px] cursor-pointer rounded-[8px] border border-gray-400 bg-white px-[16px] py-[12px] drop-shadow-sm transition-colors duration-150",
             { "!border-blue-500": showMenu },
             { "!cursor-not-allowed opacity-50": disable },
+            { "py-[8px]": selectedOptions.length > 0 },
           )}
           type="button"
           disabled={disable}
@@ -118,9 +124,31 @@ const Entry = () => {
           <div className="flex items-center justify-between gap-5">
             <div className="flex items-center justify-start gap-3">
               <div className="shrink-0 fill-navy-700">{icon}</div>
-              <p className="bg-transparent text-sm font-medium text-navy-700">
-                {selectedOption?.label || "--"}
-              </p>
+              <div
+                className={cn("flex items-center justify-center gap-3 rounded-[8px]", {
+                  "bg-neutral-50": selectedOptions.length > 0,
+                })}
+              >
+                <p
+                  className={cn("bg-transparent text-sm font-medium text-navy-700", {
+                    "px-3 py-1": selectedOptions.length > 0,
+                  })}
+                >
+                  {selectedOptions.length > 0 ? `${selectedOptions.length} item(s) selected` : "--"}
+                </p>
+
+                {selectedOptions.length > 0 && (
+                  <button
+                    className="group shrink-0 border-l border-gray-400 px-2 py-1"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClear();
+                    }}
+                  >
+                    <Icons.Close className="h-4 w-4 shrink-0 fill-navy-600 transition-colors duration-150 group-hover:fill-navy-400 group-active:fill-navy-700" />
+                  </button>
+                )}
+              </div>
             </div>
             <Icons.ChevronDown
               className={cn("h-5 w-5 shrink-0 fill-navy-700 transition-transform duration-150", {

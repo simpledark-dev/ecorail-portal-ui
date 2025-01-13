@@ -72,7 +72,10 @@ export const NoticeInstance = (props: NoticeInstanceProps) => {
             >
               <Icons.ChevronDown
                 aria-hidden="true"
-                className="h-5 w-5 shrink-0 fill-navy-600 transition-colors duration-150 active:fill-blue-700 group-hover:fill-blue-600"
+                className={cn(
+                  "h-5 w-5 shrink-0 fill-navy-600 transition-all duration-150 active:fill-blue-700 group-hover:fill-blue-600",
+                  { "rotate-180": isCollapsed },
+                )}
               />
             </button>
           )}

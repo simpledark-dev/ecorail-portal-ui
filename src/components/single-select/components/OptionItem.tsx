@@ -35,7 +35,7 @@ export const OptionItem = (props: OptionItemProps) => {
       disabled={option.disable}
       className={cn(
         "w-full px-[20px] py-[8px] text-left transition-colors duration-150",
-        { "enabled:hover:bg-blue-100 enabled:active:bg-blue-200": !isSelected },
+        { "enabled:hover:bg-blue-50 enabled:active:bg-blue-100": !isSelected },
         { "bg-blue-100": isSelected },
         { "opacity-50": option.disable },
       )}

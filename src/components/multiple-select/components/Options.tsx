@@ -1,6 +1,8 @@
 import { useScopeContext } from "../contexts/scope.context";
+import { Controls } from "./Controls";
 import { OptionItem } from "./OptionItem";
 import { SearchBar } from "./SearchBar";
+import { SelectAll } from "./SelectAll";
 
 export const Options = () => {
   const scopeContext = useScopeContext();
@@ -12,6 +14,13 @@ export const Options = () => {
     <div className="w-fit min-w-[200px] overflow-hidden rounded-[8px] border border-gray-400 bg-white drop-shadow-sm">
       <SearchBar />
       <div className="h-[1px] w-full bg-gray-400" />
+
+      {displayOptions.length > 0 && (
+        <>
+          <SelectAll />
+          <div className="h-[1px] w-full bg-gray-400" />
+        </>
+      )}
 
       {displayOptions.length === 0 && searchInput.length === 0 && (
         <div className="px-[20px] py-[16px]">
@@ -36,6 +45,9 @@ export const Options = () => {
           })}
         </ul>
       )}
+
+      <div className="h-[1px] w-full bg-gray-400" />
+      <Controls />
     </div>
   );
 };

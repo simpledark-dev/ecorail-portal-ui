@@ -47,10 +47,16 @@ Default.args = {
     {
       key: "start_date_utc",
       label: "Start date",
+      format(value) {
+        return moment(value).format("LLL");
+      },
     },
     {
       key: "end_date_utc",
       label: "End date",
+      format(value) {
+        return moment(value).format("LLL");
+      },
     },
     {
       key: "start-end" as const,
@@ -61,6 +67,9 @@ Default.args = {
         },
       },
       customDataCell: {
+        attributes: {
+          className: "whitespace-nowrap",
+        },
         render(item) {
           return (
             <>
@@ -97,10 +106,16 @@ Pagination.args = {
     {
       key: "start_date_utc",
       label: "Start date",
+      format(value) {
+        return moment(value).format("LLL");
+      },
     },
     {
       key: "end_date_utc",
       label: "End date",
+      format(value) {
+        return moment(value).format("LLL");
+      },
     },
     {
       key: "start-end" as const,
@@ -111,6 +126,9 @@ Pagination.args = {
         },
       },
       customDataCell: {
+        attributes: {
+          className: "whitespace-nowrap",
+        },
         render(item) {
           return (
             <>
@@ -151,11 +169,17 @@ SnapPagination.args = {
       key: "start_date_utc",
       label: "Start date",
       shortable: true,
+      format(value) {
+        return moment(value).format("LLL");
+      },
     },
     {
       key: "end_date_utc",
       label: "End date",
       shortable: true,
+      format(value) {
+        return moment(value).format("LLL");
+      },
     },
     {
       key: "start-end" as const,
@@ -166,6 +190,9 @@ SnapPagination.args = {
         },
       },
       customDataCell: {
+        attributes: {
+          className: "whitespace-nowrap",
+        },
         render(item) {
           return (
             <>
